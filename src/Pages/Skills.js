@@ -1,13 +1,22 @@
 import React, { useEffect } from "react";
-
-const Skills = ({ vp }) => {
+import NavBar from "../Components/NavBar/NavBar";
+import Video from "../Components/Video/Video";
+import PageWrap from "./Page.style";
+import LargeCard from "../Components/UI/LargeCard";
+const Skills = ({ vp, page }) => {
   //this is stupid and so am I
   useEffect(() => {
     if (vp.current.scrollTop !== 0) {
       vp.current.scrollTop = 0;
     }
   }, [vp]);
-  return <div>Skills</div>;
+  return (
+    <PageWrap>
+      <NavBar page={page} />
+      <Video />
+      <LargeCard></LargeCard>
+    </PageWrap>
+  );
 };
 
 export default Skills;

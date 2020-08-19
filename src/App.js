@@ -20,19 +20,19 @@ function App() {
       <Switch>
         <RouterView ref={viewPort}>
           <Route exact path="/">
-            <Home vp={viewPort} />
+            <Home page="HOME" vp={viewPort} />
           </Route>
           <Route path="/about">
-            <About vp={viewPort} />
+            <About page="ABOUT" vp={viewPort} />
           </Route>
           <Route path="/projects">
-            <Projects vp={viewPort} />
+            <Projects page="PROJECTS" vp={viewPort} />
           </Route>
           <Route path="/skills">
-            <Skills vp={viewPort} />
+            <Skills page="SKILLS" vp={viewPort} />
           </Route>
           <Route path="/contact">
-            <Contact vp={viewPort} />
+            <Contact page="CONTACT" vp={viewPort} />
           </Route>
         </RouterView>
       </Switch>
