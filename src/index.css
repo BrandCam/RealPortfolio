@@ -7,16 +7,11 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-shadow: 0 0 5px #c8c8c8;
-  height: 100vh;
   box-sizing: border-box;
   font-size: 16px;
   color: white;
 }
-body {
-  position: static;
-  overflow-y: auto;
-  overflow: hidden;
-}
+
 h1 {
   font-family: "Press Start 2P", cursive;
   font-size: 1rem;

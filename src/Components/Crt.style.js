@@ -15,6 +15,7 @@ const Crt = styled.div`
     transparent 1px,
     transparent 2px
   );
+  pointer-events: none;
 `;
 
 export default Crt;
