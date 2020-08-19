@@ -27,7 +27,7 @@ const pulse = keyframes`
 
 const movingStar = keyframes`
     0% {
-        transform: translateX(0px) scale(1);
+        transform: translateX(-100px) scale(1);
         opacity: 0;
     }
     25% {

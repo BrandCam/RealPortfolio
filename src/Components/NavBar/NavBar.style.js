@@ -5,7 +5,7 @@ const NavBarWrap = styled.div`
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
-  margin: 0 5%;
+  margin-top: 50px;
   .content {
     display: flex;
     height: 52px;

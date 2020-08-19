@@ -1,7 +1,7 @@
 import React from "react";
 import logo from "./logo.svg";
-import Canvas from "./Components/Canvas";
-import Crt from "./Components/Crt.style";
+import Canvas from "./Components/Canvas/Canvas";
+import Crt from "./Components/UI/Crt.style";
 import { Switch, Route } from "react-router-dom";
 import RouterView from "./Pages/Router-View.style";
 import { Home, Skills, Projects, Contact, About } from "./Pages/index";

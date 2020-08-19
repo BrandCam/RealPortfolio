@@ -5,14 +5,14 @@ const RouterView = styled.main`
   height: 80vh;
   position: absolute;
   top: 10%;
-  left: 9.75%;
-  width: 80%;
+  left: 5%;
+  width: 90%;
   display: flex;
   justify-content: center;
   overflow-y: auto;
 
-  border: 3px solid rgba(0, 0, 0, 0);
-  border-radius: 9px 11px 5px 10px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  border-radius: 100px;
   /* Hide scrollbar for Chrome, Safari and Opera */
   &::-webkit-scrollbar {
     display: none;

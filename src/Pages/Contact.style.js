@@ -3,7 +3,7 @@ import styled from "styled-components";
 const ContactWrap = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 80%;
   align-items: center;
 `;
 

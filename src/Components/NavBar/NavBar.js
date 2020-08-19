@@ -1,9 +1,9 @@
 import React from "react";
 import NavBarWrap from "./NavBar.style";
-import LogoWrap from "./LogoImg.style";
-import logo from "../img/logo192.png";
-import Button from "../Components/UI/Button.styles";
-import H1 from "../Components/UI/TitleH1";
+import LogoWrap from "../UI/LogoImg.style";
+import logo from "../../img/logo192.png";
+import Button from "../UI/Button.styles";
+import H1 from "../UI/TitleH1";
 
 const NavBar = () => {
   return (
@@ -13,7 +13,7 @@ const NavBar = () => {
       </LogoWrap>
       <div className="content">
         <H1>CONTACT</H1>
-        <Button>Menu</Button>
+        <Button to="/">Menu</Button>
       </div>
     </NavBarWrap>
   );

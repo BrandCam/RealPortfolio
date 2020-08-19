@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const LogoWrap = styled.div`
-  width: 475px;
-  height: 215px;
-  margin-top: 25px;
+  width: 600px;
+  height: 300px;
+  margin-top: 100px;
   margin-bottom: 25px;
   img {
     width: 100%;
