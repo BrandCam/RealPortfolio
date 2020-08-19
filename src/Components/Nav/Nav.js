@@ -1,19 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { NavLink, NavList, MenuHover } from "./Nav.style";
 
 const Nav = () => {
-  const [hoverPos, setHoverPos] = useState("0");
-  const [showHov, setShowHov] = useState(false);
+  const [hoverPos, setHoverPos] = useState("-500");
 
   return (
-    <NavList
-      onMouseEnter={() => {
-        setShowHov(true);
-      }}
-    >
+    <NavList>
       {/* needs to jump down 62px per link */}
       <MenuHover
-        className={showHov ? "" : "hide"}
         style={{ transform: `matrix(1, 0, 0, 1,0, ${hoverPos})` }}
       ></MenuHover>
       <NavLink

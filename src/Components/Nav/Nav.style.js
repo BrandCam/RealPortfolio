@@ -12,6 +12,7 @@ export const NavList = styled.div`
   flex-direction: column;
   align-items: center;
   margin-bottom: 100px;
+  width: 100%;
 `;
 export const MenuHover = styled.div`
   position: absolute;
@@ -28,7 +29,7 @@ export const MenuHover = styled.div`
   height: 40px;
   opacity: 0.25;
   margin-top: -5px;
-  transform: matrix(1, 0, 0, 1, 0, 0);
+
   z-index: -1;
   transition-duration: 0.1s;
   &.hide {
