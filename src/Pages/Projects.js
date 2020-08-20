@@ -3,6 +3,7 @@ import NavBar from "../Components/NavBar/NavBar";
 import Video from "../Components/Video/Video";
 import PageWrap from "./Page.style";
 import LargeCard from "../Components/UI/LargeCard";
+import ProjectBox from "../Components/ProjectBox/ProjectBox";
 const Projects = ({ vp, page }) => {
   //this is stupid and so am I
   useEffect(() => {
@@ -14,7 +15,7 @@ const Projects = ({ vp, page }) => {
     <PageWrap>
       <NavBar page={page} />
       <Video />
-      <LargeCard></LargeCard>
+      <ProjectBox></ProjectBox>
     </PageWrap>
   );
 };
