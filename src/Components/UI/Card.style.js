@@ -16,7 +16,7 @@ const width = ({ size }) => (size === "small" ? "" : "100%");
 const CardWrap = styled.div`
   width: ${(props) => (props.size === "small" ? "" : "100%")};
   line-height: 3;
-  margin: 50px 15px;
+  margin: ${(props) => (props.size === "small" ? "" : "50px 15px")};
   position: relative;
 
   .children {
