@@ -5,7 +5,9 @@ const CardWrap = styled.div`
   line-height: 3;
   margin-bottom: 100px;
   position: relative;
+
   .children {
+    font-family: "Russo One", sans-serif;
     color: white;
     z-index: 5;
     width: 90%;
