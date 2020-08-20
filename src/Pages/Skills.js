@@ -2,7 +2,13 @@ import React, { useEffect } from "react";
 import NavBar from "../Components/NavBar/NavBar";
 import Video from "../Components/Video/Video";
 import PageWrap from "./Page.style";
-import LargeCard from "../Components/UI/LargeCard";
+import HighScoreSection from "../Components/HighScoresSection/HighScoresSection";
+import styled from "styled-components";
+let StickyVid = styled.div`
+  position: fixed;
+  left: 20%;
+  bottom: 30%;
+`;
 const Skills = ({ vp, page }) => {
   //this is stupid and so am I
   useEffect(() => {
@@ -11,11 +17,27 @@ const Skills = ({ vp, page }) => {
     }
   }, [vp]);
   return (
-    <PageWrap>
-      <NavBar page={page} />
-      <Video />
-      <LargeCard></LargeCard>
-    </PageWrap>
+    <>
+      <StickyVid>
+        <Video />
+      </StickyVid>
+      <PageWrap>
+        <NavBar page={page} />
+
+        <HighScoreSection
+          skills={[
+            "REACT",
+            "NODEJS",
+            "HTML5",
+            "CSS3",
+            "SQLITE",
+            "POSTGRESQL",
+            "EXPRESS",
+            "REDUX",
+          ]}
+        />
+      </PageWrap>
+    </>
   );
 };
 

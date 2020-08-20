@@ -1,42 +1,55 @@
 import styled from "styled-components";
 
+const scale = (props) => {
+  if (props.size) {
+    return props.size === "large"
+      ? "7.5px"
+      : props.size === "small"
+      ? "3px"
+      : "7.5px";
+  }
+  return "7.5px";
+};
+
+const width = ({ size }) => (size === "small" ? "" : "100%");
+
 const CardWrap = styled.div`
-  width: 100%;
+  width: ${(props) => (props.size === "small" ? "" : "100%")};
   line-height: 3;
-  margin-bottom: 100px;
+  margin: 50px 15px;
   position: relative;
 
   .children {
     font-family: "Russo One", sans-serif;
     color: white;
     z-index: 5;
-    width: 90%;
-    margin: 1rem auto;
+    width: ${(props) => (props.size === "small" ? "" : "90%")};
+    margin: ${(props) => (props.size === "small" ? "" : "1rem auto")};
     font-size: 1.5rem;
   }
   &:after {
     content: "";
     display: block;
-    width: -webkit-calc(100% - 7.5px * 2);
-    width: -moz-calc(100% - 7.5px * 2);
-    width: calc(100% - 7.5px * 2);
-    height: 7.5px;
+    width: -webkit-calc(100% - ${(props) => scale(props)} * 2);
+    width: -moz-calc(100% - ${(props) => scale(props)}* 2);
+    width: calc(100% - ${(props) => scale(props)} * 2);
+    height: ${(props) => scale(props)};
     position: absolute;
     background-color: #fff;
-    left: 7.5px;
-    bottom: 7.5px;
+    left: ${(props) => scale(props)};
+    bottom: ${(props) => scale(props)};
     z-index: 2;
   }
   &:before {
     content: "";
     position: absolute;
     display: block;
-    width: -webkit-calc(100% - 7.5px * 2);
-    width: -moz-calc(100% - 7.5px * 2);
-    width: calc(100% - 7.5px * 2);
+    width: -webkit-calc(100% - ${(props) => scale(props)} * 2);
+    width: -moz-calc(100% - ${(props) => scale(props)} * 2);
+    width: calc(100% - ${(props) => scale(props)} * 2);
     background-color: #fff;
-    height: 7.5px;
-    left: 7.5px;
+    height: ${(props) => scale(props)};
+    left: ${(props) => scale(props)};
     /* top: calc(100% - 7.5px);
     top: -webkit-calc(100% - 7.5px);
     top: -moz-calc(100% - 7.5px); */
@@ -48,77 +61,77 @@ const CardWrap = styled.div`
     :after {
       content: "";
       display: block;
-      width: 7.5px;
-      height: -moz-calc(100% - 7.5px * 3);
-      height: -webkit-calc(100% - 7.5px * 3);
-      height: calc(100% - 7.5px * 3);
+      width: ${(props) => scale(props)};
+      height: -moz-calc(100% - ${(props) => scale(props)} * 3);
+      height: -webkit-calc(100% - ${(props) => scale(props)} * 3);
+      height: calc(100% - ${(props) => scale(props)} * 3);
       position: absolute;
       background-color: #fff;
-      left: -webkit-calc(100% - 7.5px * 2);
-      left: -moz-calc(100% - 7.5px * 2);
-      left: calc(100% - 7.5px);
-      top: 7.5px;
+      left: -webkit-calc(100% -${(props) => scale(props)} * 2);
+      left: -moz-calc(100% - ${(props) => scale(props)} * 2);
+      left: calc(100% - ${(props) => scale(props)});
+      top: ${(props) => scale(props)};
       z-index: 2;
     }
     :before {
       content: "";
       position: absolute;
       display: block;
-      width: 7.5px;
+      width: ${(props) => scale(props)};
       background-color: #fff;
-      height: -webkit-calc(100% - 7.5px * 3);
-      height: -moz-calc(100% - 7.5px * 3);
-      height: calc(100% - 7.5px * 3);
-      right: calc(100% - 7.5px);
-      right: -webkit-calc(100% - 7.5px);
-      right: -moz-calc(100% - 7.5px);
-      top: 7.5px;
+      height: -webkit-calc(100% - ${(props) => scale(props)} * 3);
+      height: -moz-calc(100% - ${(props) => scale(props)} * 3);
+      height: calc(100% - ${(props) => scale(props)} * 3);
+      right: calc(100% - ${(props) => scale(props)});
+      right: -webkit-calc(100% - ${(props) => scale(props)});
+      right: -moz-calc(100% - ${(props) => scale(props)});
+      top: ${(props) => scale(props)};
       z-index: 2;
     }
   }
   .background {
     position: absolute;
-    right: 7.5px;
+    right: ${(props) => scale(props)};
     background-color: rgba(0, 0, 0, 0.5);
-    height: -webkit-calc(100% - 7.5px);
-    height: -moz-calc(100% - 7.5px);
-    height: calc(100% - 7.5px);
-    width: -webkit-calc(100% - 7.5px * 2);
-    width: -moz-calc(100% - 7.5px * 2);
-    width: calc(100% - 7.5px * 2);
+    height: -webkit-calc(100% - ${(props) => scale(props)});
+    height: -moz-calc(100% - ${(props) => scale(props)});
+    height: calc(100% - ${(props) => scale(props)});
+    width: -webkit-calc(100% - ${(props) => scale(props)} * 2);
+    width: -moz-calc(100% - ${(props) => scale(props)} * 2);
+    width: calc(100% - ${(props) => scale(props)} * 2);
     z-index: -1;
     .top-left {
       position: absolute;
       content: "";
       background-color: #fff;
-      width: 7.5px;
-      height: 7.5px;
-      top: 7.5px;
+      width: ${(props) => scale(props)};
+      height: ${(props) => scale(props)};
+      top: ${(props) => scale(props)};
     }
     .bottom-left {
       position: absolute;
       content: "";
       background-color: #fff;
-      width: 7.5px;
-      height: 7.5px;
-      bottom: 7.5px;
+      width: ${(props) => scale(props)};
+      height: ${(props) => scale(props)};
+      bottom: ${(props) => scale(props)};
     }
     .top-right {
       position: absolute;
       content: "";
       background-color: #fff;
-      width: 7.5px;
-      height: 7.5px;
-      top: 7.5px;
+      width: ${(props) => scale(props)};
+      height: ${(props) => scale(props)};
+      top: ${(props) => scale(props)};
       right: 0px;
     }
     .bottom-right {
       position: absolute;
       content: "";
       background-color: #fff;
-      width: 7.5px;
-      height: 7.5px;
-      bottom: 7.5px;
+      width: ${(props) => scale(props)};
+      height: ${(props) => scale(props)};
+      bottom: ${(props) => scale(props)};
       right: 0;
     }
   }
