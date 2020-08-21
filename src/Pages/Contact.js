@@ -7,6 +7,7 @@ import styled from "styled-components";
 import MyForm from "../Components/UI/Form.style";
 import { Formik, Field, Form } from "formik";
 import emailjs from "emailjs-com";
+import bg from "../img/send.png";
 
 const InfoWrap = styled.section`
   display: flex;
@@ -128,7 +129,9 @@ const Contact = ({ vp, page }) => {
               />
             </div>
             <div className="button-wrap">
-              <button type="submit">{/* <img src={controler} /> */}</button>
+              <button style={{ backgroundImage: `url(${bg})` }} type="submit">
+                <span>Punch It!</span>
+              </button>
             </div>
           </MyForm>
         )}

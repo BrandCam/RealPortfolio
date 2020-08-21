@@ -55,6 +55,36 @@ const MyForm = styled(Form)`
   .button-wrap {
     display: flex;
     justify-content: flex-end;
+
+    button {
+      width: calc(340px * 0.5);
+      height: calc(110px * 0.4);
+      display: flex;
+      justify-content: center;
+
+      opacity: 0.5;
+      background-repeat: no-repeat;
+      background-size: 100%;
+      color: white;
+      transition: all 0.5s ease-out;
+      span {
+        font-family: "press start 2p";
+        font-size: 1rem;
+        margin-top: -7px;
+        opacity: 0;
+        margin-right: -10px;
+      }
+    }
+    button:hover {
+      width: calc(340px * 0.8);
+      height: calc(110px * 0.7);
+      opacity: 1;
+      color: yellow;
+      span {
+        opacity: 1;
+        font-size: 1.5rem;
+      }
+    }
   }
 `;
 

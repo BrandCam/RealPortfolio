@@ -1,0 +1,11 @@
+////////////////////////////
+     COLOR CODES
+////////////////////////////
+
+Logo{
+    DARK GREEN : rgb(0, 127, 120)
+    LIGHT GREEN : rgb(98, 185, 146)
+
+    OUTLINE YELLOW : rgb(246, 170, 0)
+    OUTLINE RED : 	rgb(230, 0, 17)
+}
