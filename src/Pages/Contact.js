@@ -61,7 +61,7 @@ const Contact = ({ vp, page }) => {
           subject: "",
           message: "",
         }}
-        onSubmit={(values) => {
+        onSubmit={(values, { resetForm }) => {
           emailjs
             .send(
               "gmail",
@@ -72,6 +72,7 @@ const Contact = ({ vp, page }) => {
             .then(
               (res) => {
                 console.log("SUCCESS", res.status, res.text);
+                resetForm();
               },
               (err) => {
                 console.log("FAILED", err);
