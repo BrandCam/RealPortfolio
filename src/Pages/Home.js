@@ -3,6 +3,9 @@ import img from "../img/logo192.png";
 import LogoWrap from "../Components/UI/LogoImg.style";
 import HomeWrap from "./Home.style";
 import Nav from "../Components/Nav/Nav";
+import git from "../img/git.png";
+import ln from "../img/ln.png";
+import SocialWrap from "../Components/UI/Social.style";
 const Home = ({ vp, page }) => {
   //this is stupid and so am I
   useEffect(() => {
@@ -18,7 +21,14 @@ const Home = ({ vp, page }) => {
         </LogoWrap>
         <Nav />
       </HomeWrap>
-      <div>social</div>
+      <SocialWrap>
+        <a href="https://github.com/BrandCam">
+          <img src={git} />
+        </a>
+        <a href="https://www.linkedin.com/in/brandon-campbell-65279a123/">
+          <img src={ln} />
+        </a>
+      </SocialWrap>
     </>
   );
 };

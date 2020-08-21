@@ -34,11 +34,9 @@ const ProjectBoxScene = styled.section`
    */
   .box-face {
     position: absolute;
-    border: 2px solid black;
     font-size: 40px;
     font-weight: bold;
     color: white;
-    text-align: center;
   }
   .box-face-front {
     width: 300px;
@@ -82,20 +80,9 @@ const ProjectBoxScene = styled.section`
   .box-face-front {
     background: hsla(0, 100%, 50%, 0.7);
   }
-  .box-face-right {
-    background: hsla(60, 100%, 50%, 0.7);
-  }
+
   .box-face-back {
     background: hsla(120, 100%, 50%, 0.7);
-  }
-  .box-face-left {
-    background: hsla(180, 100%, 50%, 0.7);
-  }
-  .box-face-top {
-    background: hsla(240, 100%, 50%, 0.7);
-  }
-  .box-face-bottom {
-    background: hsla(300, 100%, 50%, 0.7);
   }
 
   .box-face-front {

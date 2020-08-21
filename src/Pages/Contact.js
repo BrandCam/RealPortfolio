@@ -1,9 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import NavBar from "../Components/NavBar/NavBar";
 import Video from "../Components/Video/Video";
 import PageWrap from "./Page.style";
 import LargeCard from "../Components/UI/LargeCard";
 import styled from "styled-components";
+import MyForm from "../Components/UI/Form.style";
 import { Formik, Field, Form } from "formik";
 import emailjs from "emailjs-com";
 
@@ -18,6 +19,21 @@ const InfoWrap = styled.section`
   }
 `;
 const Contact = ({ vp, page }) => {
+  const [focused, setFocused] = useState(null);
+
+  const focusSetHandler = (e) => {
+    let target = e.target.name;
+    console.log(e.target.name);
+    setFocused(() => target);
+  };
+  //brain broke caveman time
+  const checkFocus = (ref, type) => {
+    if (focused === type || ref !== "") {
+      return "focused";
+    }
+    return "";
+  };
+
   //this is stupid and so am I
   useEffect(() => {
     if (vp.current.scrollTop !== 0) {
@@ -62,13 +78,60 @@ const Contact = ({ vp, page }) => {
             );
         }}
       >
-        <Form>
-          <Field name="name" type="name" />
-          <Field name="email" type="email" />
-          <Field name="subject" type="text" />
-          <Field name="message" type="text" />
-          <button type="submit">SEND</button>
-        </Form>
+        {(props) => (
+          <MyForm>
+            <div className="name-wrap">
+              <span className={checkFocus(props.values.name, "name")}>
+                NAME
+              </span>
+              <Field
+                onBlur={() => setFocused((cur) => "")}
+                onClick={(e) => focusSetHandler(e)}
+                tabindex="-1"
+                name="name"
+                type="name"
+              />
+            </div>
+            <div className="email-wrap">
+              <span className={checkFocus(props.values.email, "email")}>
+                EMAIL
+              </span>
+              <Field
+                onBlur={() => setFocused((cur) => "")}
+                onClick={(e) => focusSetHandler(e)}
+                tabindex="-1"
+                name="email"
+                type="email"
+                value={props.values.email}
+              />
+            </div>
+            <div className="subject-wrap">
+              <span className={checkFocus(props.values.subject, "subject")}>
+                SUBJECT
+              </span>
+              <Field
+                onBlur={() => setFocused((cur) => "")}
+                onClick={(e) => focusSetHandler(e)}
+                tabindex="-1"
+                name="subject"
+                type="text"
+              />
+            </div>
+            <div className="message-wrap">
+              <span style={{ color: "rgb(253, 196, 15)" }}>MESSAGE</span>
+              <Field
+                onClick={(e) => focusSetHandler(e)}
+                rows={4}
+                cols={40}
+                name="message"
+                as="textarea"
+              />
+            </div>
+            <div className="button-wrap">
+              <button type="submit">{/* <img src={controler} /> */}</button>
+            </div>
+          </MyForm>
+        )}
       </Formik>
     </PageWrap>
   );
