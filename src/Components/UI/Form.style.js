@@ -79,7 +79,7 @@ const MyForm = styled(Form)`
       width: calc(340px * 0.8);
       height: calc(110px * 0.7);
       opacity: 1;
-      color: yellow;
+      color: rgb(253, 196, 15);
       span {
         opacity: 1;
         font-size: 1.5rem;
