@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import ProjectBoxScene from "./ProjectBox.style";
 import LargeCard from "../UI/LargeCard";
-const ProjectBox = () => {
+import ProjectPrev from "../ProjectPrev/ProjectPrev";
+const ProjectBox = ({ prevs }) => {
+  let [isSelected, setIsSelected] = useState(false);
   return (
-    <ProjectBoxScene>
+    <ProjectBoxScene
+      onClick={() => setIsSelected(true)}
+      className={isSelected ? "selected" : ""}
+    >
       <div className="box">
-        <div className="box-face box-face-front">GIF</div>
-        <div className="box-face box-face-back">GIF</div>
+        <div className="box-face box-face-front">
+          <ProjectPrev selected={isSelected} prevs={prevs} />
+        </div>
+        <div className="box-face box-face-back">
+          <ProjectPrev selected={isSelected} prevs={prevs} />
+        </div>
         <div className="box-face box-face-right">
           <LargeCard size="small" style={{ height: "100%" }} />
         </div>

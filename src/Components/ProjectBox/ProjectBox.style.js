@@ -12,15 +12,54 @@ const rotate = keyframes`
     }
 `;
 
+const clicked = keyframes`
+  0%{
+    width: 300px;
+  height: 200px;
+  }
+  50%{
+    transform:rotateY(0deg)  rotateX(0deg);
+    width: 75%;
+    height: 75%;
+  }
+  100%{
+    width: 100%;
+    height: 100%;
+  }
+`;
+
 const ProjectBoxScene = styled.section`
   width: 300px;
   height: 200px;
   margin: 80px;
+  transition: all 3s linear;
   perspective: 1500px;
+
+  &.selected {
+    width: 100%;
+    height: 100%;
+
+    .box {
+      width: 100%;
+      height: 100%;
+
+      animation: ${rotate} 4s linear;
+    }
+    .box-face-right {
+      left: 783px;
+    }
+    .box-face-left {
+      left: 10%;
+    }
+    .box-face-bottom {
+      top: 310px;
+    }
+  }
   .box {
     width: 300px;
     height: 200px;
     position: relative;
+    transition: width 1s, height 1s, transform 1s;
     transform-style: preserve-3d;
     transform: translateZ(-50px);
     transition: transform 1s;
@@ -39,50 +78,45 @@ const ProjectBoxScene = styled.section`
     color: white;
   }
   .box-face-front {
-    width: 300px;
-    height: 200px;
-    line-height: 200px;
+    width: 100%;
+    height: 100%;
   }
 
   .box-face-back {
-    width: 300px;
-    height: 200px;
-    line-height: 200px;
+    width: 100%;
+    height: 100%;
   }
 
   .box-face-right {
     width: 100px;
-    height: 200px;
-    left: 100px;
+    height: 100%;
+    left: 33%;
     line-height: 200px;
+    transition: all 1s linear;
   }
 
   .box-face-left {
     width: 100px;
-    height: 200px;
-    left: 100px;
+    height: 100%;
+    left: 33%;
     line-height: 200px;
+    transition: all 1s linear;
   }
 
   .box-face-top {
-    width: 300px;
+    width: 100%;
     height: 100px;
     top: 50px;
     line-height: 100px;
+    transition: all 1s linear;
   }
 
   .box-face-bottom {
-    width: 300px;
+    width: 100%;
     height: 100px;
     top: 50px;
     line-height: 100px;
-  }
-  .box-face-front {
-    background: hsla(0, 100%, 50%, 0.7);
-  }
-
-  .box-face-back {
-    background: hsla(120, 100%, 50%, 0.7);
+    transition: all 1s linear;
   }
 
   .box-face-front {
