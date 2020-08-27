@@ -6,7 +6,8 @@ const ProjectBox = ({ prevs }) => {
   let [isSelected, setIsSelected] = useState(false);
   return (
     <ProjectBoxScene
-      onClick={() => setIsSelected(true)}
+      selected={isSelected}
+      onClick={() => setIsSelected(!isSelected)}
       className={isSelected ? "selected" : ""}
     >
       <div className="box">

@@ -14,17 +14,13 @@ const rotate = keyframes`
 
 const clicked = keyframes`
   0%{
-    width: 300px;
-  height: 200px;
+    transform:rotateY(0deg)  rotateX(0deg);
   }
   50%{
-    transform:rotateY(0deg)  rotateX(0deg);
-    width: 75%;
-    height: 75%;
+    transform:rotateY(180deg) rotateX(100deg);
   }
   100%{
-    width: 100%;
-    height: 100%;
+    transform:rotateY(360deg) rotateX(360deg);
   }
 `;
 
@@ -37,33 +33,44 @@ const ProjectBoxScene = styled.section`
 
   &.selected {
     width: 100%;
-    height: 100%;
+    height: 500px;
 
     .box {
       width: 100%;
       height: 100%;
 
-      animation: ${rotate} 4s linear;
+      animation: ${clicked} 4s linear;
     }
     .box-face-right {
-      left: 783px;
+      left: 125%;
+      opacity: 0;
     }
     .box-face-left {
-      left: 10%;
+      left: -160%;
+      opacity: 0;
     }
     .box-face-bottom {
       top: 310px;
+      opacity: 0;
+    }
+    .box-face-top {
+      top: -310px;
+      opacity: 0;
+    }
+    .box-face-back {
+      opacity: 0;
     }
   }
   .box {
     width: 300px;
     height: 200px;
     position: relative;
-    transition: width 1s, height 1s, transform 1s;
+
     transform-style: preserve-3d;
     transform: translateZ(-50px);
     transition: transform 1s;
     animation: ${rotate} 4s linear infinite;
+    animation-duration: infinite;
   }
 
   /* SHOWS FRONT */
@@ -85,6 +92,7 @@ const ProjectBoxScene = styled.section`
   .box-face-back {
     width: 100%;
     height: 100%;
+    transition: all 2s linear;
   }
 
   .box-face-right {
@@ -92,7 +100,7 @@ const ProjectBoxScene = styled.section`
     height: 100%;
     left: 33%;
     line-height: 200px;
-    transition: all 1s linear;
+    transition: all 2s linear;
   }
 
   .box-face-left {
@@ -100,7 +108,7 @@ const ProjectBoxScene = styled.section`
     height: 100%;
     left: 33%;
     line-height: 200px;
-    transition: all 1s linear;
+    transition: all 2s linear;
   }
 
   .box-face-top {
@@ -108,7 +116,7 @@ const ProjectBoxScene = styled.section`
     height: 100px;
     top: 50px;
     line-height: 100px;
-    transition: all 1s linear;
+    transition: all 2s linear;
   }
 
   .box-face-bottom {
@@ -116,7 +124,7 @@ const ProjectBoxScene = styled.section`
     height: 100px;
     top: 50px;
     line-height: 100px;
-    transition: all 1s linear;
+    transition: all 2s linear;
   }
 
   .box-face-front {
