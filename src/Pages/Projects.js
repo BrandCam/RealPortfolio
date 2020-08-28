@@ -18,6 +18,8 @@ const Projects = ({ vp, page }) => {
       <NavBar page={page} />
       {/* <Video /> */}
       <ProjectBox prevs={lodgel}></ProjectBox>
+      <ProjectBox prevs={lodgel}></ProjectBox>
+      <ProjectBox prevs={lodgel}></ProjectBox>
     </PageWrap>
   );
 };

@@ -19,7 +19,7 @@ const clicked = keyframes`
   50%{
     transform:rotateY(180deg) rotateX(100deg);
   }
-  100%{
+  90%{
     transform:rotateY(360deg) rotateX(360deg);
   }
 `;
@@ -33,13 +33,15 @@ const ProjectBoxScene = styled.section`
 
   &.selected {
     width: 100%;
-    height: 500px;
+    min-height: 1000px;
 
     .box {
       width: 100%;
       height: 100%;
-
       animation: ${clicked} 4s linear;
+    }
+    .box-face-front {
+      height: auto;
     }
     .box-face-right {
       left: 125%;
@@ -50,7 +52,7 @@ const ProjectBoxScene = styled.section`
       opacity: 0;
     }
     .box-face-bottom {
-      top: 310px;
+      top: 150%;
       opacity: 0;
     }
     .box-face-top {
@@ -58,6 +60,7 @@ const ProjectBoxScene = styled.section`
       opacity: 0;
     }
     .box-face-back {
+      height: auto;
       opacity: 0;
     }
   }
@@ -97,7 +100,7 @@ const ProjectBoxScene = styled.section`
 
   .box-face-right {
     width: 100px;
-    height: 100%;
+    height: 200px;
     left: 33%;
     line-height: 200px;
     transition: all 2s linear;
@@ -105,7 +108,7 @@ const ProjectBoxScene = styled.section`
 
   .box-face-left {
     width: 100px;
-    height: 100%;
+    height: 200px;
     left: 33%;
     line-height: 200px;
     transition: all 2s linear;
