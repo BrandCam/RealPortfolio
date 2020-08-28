@@ -12,7 +12,7 @@ const PacBar = ({ dots, select }) => {
       {dots.map((e, i) => (
         <React.Fragment key={i}>
           <input id={`dot-${i + 1}`} type="radio" className={`dots`} />
-          <label onClick={() => changeHandel(i)} for={`dot-${i + 1}`}>
+          <label onClick={() => changeHandel(i)} htmlFor={`dot-${i + 1}`}>
             <svg
               version="1.0"
               xmlns="http://www.w3.org/2000/svg"
@@ -62,7 +62,7 @@ const PacBar = ({ dots, select }) => {
       ))}
 
       <div
-        class="pacman"
+        className="pacman"
         style={{ transform: `translateX(${50 * pacPos + 10}px)` }}
       ></div>
     </PacWrap>

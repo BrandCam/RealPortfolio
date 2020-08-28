@@ -46,7 +46,7 @@ const Nav = () => {
         onMouseEnter={() => {
           setHoverPos("248");
         }}
-        to="/ast"
+        to="/N7-64"
       >
         Need A BREAK??
       </NavLink>

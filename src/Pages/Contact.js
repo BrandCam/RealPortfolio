@@ -89,7 +89,7 @@ const Contact = ({ vp, page }) => {
               <Field
                 onBlur={() => setFocused((cur) => "")}
                 onClick={(e) => focusSetHandler(e)}
-                tabindex="-1"
+                tabIndex="-1"
                 name="name"
                 type="name"
               />
@@ -101,7 +101,7 @@ const Contact = ({ vp, page }) => {
               <Field
                 onBlur={() => setFocused((cur) => "")}
                 onClick={(e) => focusSetHandler(e)}
-                tabindex="-1"
+                tabIndex="-1"
                 name="email"
                 type="email"
                 value={props.values.email}
@@ -114,7 +114,7 @@ const Contact = ({ vp, page }) => {
               <Field
                 onBlur={() => setFocused((cur) => "")}
                 onClick={(e) => focusSetHandler(e)}
-                tabindex="-1"
+                tabIndex="-1"
                 name="subject"
                 type="text"
               />

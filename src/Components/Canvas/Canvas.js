@@ -38,7 +38,7 @@ const Canvas = () => {
     // canvas.height = height;
     // canvas.style.width = `${width * ratio}`;
     // canvas.style.height = `${height * ratio}`;
-    console.log(canvas.width);
+
     //Star Object
     let Star = function () {
       this.x = Math.random() * canvas.width;

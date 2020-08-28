@@ -20,6 +20,12 @@ const RouterView = styled.main`
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none;
   scrollbar-width: none;
+
+  /* Add cursor to all children recursively */
+  &,
+  & > * {
+    pointer-events: auto;
+  }
 `;
 
 export default RouterView;
