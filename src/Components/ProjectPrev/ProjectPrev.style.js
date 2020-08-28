@@ -28,6 +28,13 @@ const ProjectPrevWrap = styled.div`
     opacity: 1;
     transition: all 1s ease;
     height: 50%;
+    p {
+      text-shadow: none;
+      font-size: 2rem;
+      line-height: 3rem;
+      letter-spacing: 5px;
+      text-align: center;
+    }
   }
 `;
 

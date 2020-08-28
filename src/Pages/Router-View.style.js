@@ -2,9 +2,9 @@ import styled from "styled-components";
 
 const RouterView = styled.main`
   box-sizing: border-box;
-  height: 80vh;
+  height: 90vh;
   position: absolute;
-  top: 10%;
+  top: 5%;
   left: 5%;
   width: 90%;
   display: flex;

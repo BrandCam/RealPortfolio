@@ -7,52 +7,56 @@ const Canvas = () => {
     zIndex: -100,
   };
 
-  const getPixelRatio = (context) => {
-    let backingStore =
-      context.backingStorePixelRatio ||
-      context.webkitBackingStorePixelRatio ||
-      context.mozBackingStorePixelRatio ||
-      context.msBackingStorePixelRatio ||
-      context.oBackingStorePixelRatio ||
-      context.backingStorePixelRatio ||
-      1;
+  // const getPixelRatio = (context) => {
+  //   let backingStore =
+  //     context.backingStorePixelRatio ||
+  //     context.webkitBackingStorePixelRatio ||
+  //     context.mozBackingStorePixelRatio ||
+  //     context.msBackingStorePixelRatio ||
+  //     context.oBackingStorePixelRatio ||
+  //     context.backingStorePixelRatio ||
+  //     1;
 
-    return (window.devicePixelRatio || 1) / backingStore;
-  };
+  //   return (window.devicePixelRatio || 1) / backingStore;
+  // };
 
   //grab canvas
   let ref = useRef();
+  //grab window
+  let w = useRef(window);
 
   useEffect(() => {
+    console.log(w.current.innerWidth);
     let canvas = ref.current;
     let context = canvas.getContext("2d");
 
-    // //fixes blurr, may just drop it
+    //fixes blurr, may just drop it
     // let ratio = getPixelRatio(context);
-    // let width = getComputedStyle(canvas).getPropertyValue("width").slice(0, -2);
-    // let height = getComputedStyle(canvas)
-    //   .getPropertyValue("height")
-    //   .slice(0, -2);
-    // canvas.width = width * ratio;
-    // canvas.height = height * ratio;
-    // canvas.style.width = `${width}px`;
-    // canvas.style.height = `${height}px`;
-
+    // let width = window.innerWidth;
+    // let height = window.innerHeight;
+    // canvas.width = width;
+    // canvas.height = height;
+    // canvas.style.width = `${width * ratio}`;
+    // canvas.style.height = `${height * ratio}`;
+    console.log(canvas.width);
     //Star Object
     let Star = function () {
       this.x = Math.random() * canvas.width;
       this.y = Math.random() * canvas.height;
       this.color = 0;
     };
+
     let xMod = 0;
     let yMod = 0;
     let lightSpeed = 0;
 
     Star.prototype.updatePosition = function () {
       let speed;
-      lightSpeed ? (speed = 0.04) : (speed = 0.005);
-      this.x += xMod + (this.x - canvas.width / 2) * speed;
-      this.y += yMod + (this.y - canvas.height / 2) * speed;
+      lightSpeed ? (speed = 2) : (speed = 1);
+      this.x +=
+        xMod + ((this.x - canvas.width / 2) / (canvas.width / 2)) * speed;
+      this.y +=
+        yMod + ((this.y - canvas.height / 2) / (canvas.height / 2)) * speed;
       this.updateColor();
 
       if (this.x > canvas.width || this.x < 0) {
@@ -88,6 +92,9 @@ const Canvas = () => {
     };
     const draw = () => {
       if (!lightSpeed) {
+        context.clearRect(0, 0, canvas.width, canvas.height);
+      }
+      if (lightSpeed) {
         context.fillStyle = "rgba(29,29,51,0.5)";
         context.fillRect(0, 0, canvas.width, canvas.height);
       }
@@ -98,18 +105,19 @@ const Canvas = () => {
 
         starField[i].updatePosition();
       }
+
       requestAnimationFrame(draw);
     };
     init();
-  });
+  }, [w.current]);
 
   return (
     <div
       style={{
         left: "5%",
-        top: "10%",
+        top: "5%",
         width: "90%",
-        height: "80%",
+        height: "90%",
         backgroundColor: "rgb(29,29,51)",
         ...style,
       }}
