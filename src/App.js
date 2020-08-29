@@ -15,7 +15,8 @@ function App() {
   const viewPort = useRef(null);
   let [canvasVars, setCanvasVars] = useState({
     center: true,
-    speed: 1,
+    warpZ: 12,
+    Z: 0.1,
   });
   let { pathname } = useLocation();
   useLayoutEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useRef, useContext, useLayoutEffect } from "react";
+import React, { useRef, useContext, useLayoutEffect, useEffect } from "react";
 import CanvasContext from "../../Context/CanvasContext";
 const Canvas = () => {
   const style = {
@@ -9,11 +9,31 @@ const Canvas = () => {
   // TODO Reright in a more OOP way to make edditing easier
   //grab canvas
   let ref = useRef();
+  let zModFunc = useRef(null);
   // canvas vars from context
   let { canvasVars, setCanvasVars } = useContext(CanvasContext);
-  let { speed, center } = canvasVars;
+  let { Z, center, warpZ } = canvasVars;
 
+  // constants and storage for objects that represent star positions
+  let units = 500,
+    stars = [],
+    cycle = 0;
+  //VAR TO CHECK IF V-DOM RE-RAN THE LOOP
+  let firstRun = true;
+
+  //Grabbing function to change speed
+  useEffect(() => {
+    setCanvasVars((prevState) => ({
+      ...prevState,
+      zModFunc: zModFunc.current,
+    }));
+  }, [zModFunc.current]);
+
+  //Starting canvas animation loop
   useLayoutEffect(() => {
+    if (firstRun) {
+      zModFunc.current = null;
+    }
     // requestAnimFrame shim
     window.requestAnimFrame = (function () {
       return (
@@ -50,13 +70,6 @@ const Canvas = () => {
       Sin = Math.sin,
       Floor = Math.floor;
 
-    // constants and storage for objects that represent star positions
-    var warpZ = 12,
-      units = 500,
-      stars = [],
-      cycle = 0,
-      Z = 0.025 + (1 / 25) * speed;
-
     // mouse events
     function addCanvasEventListener(name, fn) {
       canvas.addEventListener(name, fn, false);
@@ -81,6 +94,14 @@ const Canvas = () => {
     }
     addCanvasEventListener("DOMMouseScroll", wheel);
     addCanvasEventListener("mousewheel", wheel);
+
+    //Grabbing a ref to change speed outside of function
+    function warp(Zmod) {
+      Z += Zmod;
+    }
+    if (firstRun) {
+      zModFunc.current = warp;
+    }
 
     // function to reset a star object
     function resetstar(a) {
@@ -142,9 +163,10 @@ const Canvas = () => {
 
       // colour cycle sinewave rotation
       cycle += 0.01;
-
+      firstRun = false;
       window.requestAnimFrame(rf);
     };
+
     window.requestAnimFrame(rf);
   }, [center]);
 

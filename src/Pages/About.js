@@ -1,9 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import NavBar from "../Components/NavBar/NavBar";
 import Video from "../Components/Video/Video";
 import PageWrap from "./Page.style";
 import LargeCard from "../Components/UI/LargeCard";
+import CanvasContext from "../Context/CanvasContext";
 const About = ({ vp, page }) => {
+  // canvas vars from context
+  let { canvasVars, setCanvasVars } = useContext(CanvasContext);
+  let { center, zModFunc } = canvasVars;
+
   //this is stupid and so am I
   useEffect(() => {
     if (vp.current.scrollTop !== 0) {
@@ -14,7 +19,7 @@ const About = ({ vp, page }) => {
     <PageWrap>
       <NavBar page={page} />
       <Video />
-      <LargeCard>
+      <LargeCard onClick={() => zModFunc(0.1)}>
         For those who have seen the Earth from space, and for the hundreds and
         perhaps thousands more who will, the experience most certainly changes
         your perspective. The things that we share in our world are far more
