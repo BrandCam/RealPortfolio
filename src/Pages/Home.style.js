@@ -1,6 +1,6 @@
 import styled from "styled-components";
-
-const HomeWrap = styled.div`
+import { motion } from "framer-motion";
+const HomeWrap = styled(motion.div)`
   position: relative;
   display: flex;
   color: white;

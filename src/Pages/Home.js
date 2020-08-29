@@ -6,6 +6,7 @@ import Nav from "../Components/Nav/Nav";
 import git from "../img/git.png";
 import ln from "../img/ln.png";
 import SocialWrap from "../Components/UI/Social.style";
+import { homeTransition } from "../Animation/AnimationConsts";
 const Home = ({ vp, page }) => {
   //this is stupid and so am I
   useEffect(() => {
@@ -15,7 +16,12 @@ const Home = ({ vp, page }) => {
   }, [vp]);
   return (
     <>
-      <HomeWrap>
+      <HomeWrap
+        initial={false}
+        animate="in"
+        exit="out"
+        variants={homeTransition}
+      >
         <LogoWrap>
           <img src={img} />
         </LogoWrap>

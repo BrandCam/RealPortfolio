@@ -1,6 +1,6 @@
 import styled from "styled-components";
-
-const PageWrap = styled.div`
+import { motion } from "framer-motion";
+const PageWrap = styled(motion.div)`
   display: flex;
   flex-direction: column;
   width: 80%;

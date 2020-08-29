@@ -4,6 +4,7 @@ import Video from "../Components/Video/Video";
 import PageWrap from "./Page.style";
 import HighScoreSection from "../Components/HighScoresSection/HighScoresSection";
 import styled from "styled-components";
+import { pageTransition } from "../Animation/AnimationConsts";
 let StickyVid = styled.div`
   position: fixed;
   left: 20%;
@@ -18,10 +19,16 @@ const Skills = ({ vp, page }) => {
   }, [vp]);
   return (
     <>
-      <StickyVid>
-        <Video />
-      </StickyVid>
-      <PageWrap>
+      <PageWrap
+        initial="out"
+        animate="in"
+        exit="out"
+        variants={pageTransition}
+        transition={{ duration: 1 }}
+      >
+        <StickyVid>
+          <Video />
+        </StickyVid>
         <NavBar page={page} />
 
         <HighScoreSection

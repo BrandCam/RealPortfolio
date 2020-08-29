@@ -8,7 +8,7 @@ import MyForm from "../Components/UI/Form.style";
 import { Formik, Field, Form } from "formik";
 import emailjs from "emailjs-com";
 import bg from "../img/send.png";
-
+import { pageTransition } from "../Animation/AnimationConsts";
 const InfoWrap = styled.section`
   display: flex;
   flex-direction: column;
@@ -43,7 +43,13 @@ const Contact = ({ vp, page }) => {
   }, [vp]);
 
   return (
-    <PageWrap>
+    <PageWrap
+      initial="out"
+      animate="in"
+      exit="out"
+      variants={pageTransition}
+      transition={{ duration: 1 }}
+    >
       <NavBar page={page} />
       <LargeCard size="small">
         <InfoWrap>

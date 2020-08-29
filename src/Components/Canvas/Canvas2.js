@@ -99,8 +99,15 @@ const Canvas = () => {
     function warp(Zmod) {
       Z += Zmod;
     }
+    function deWarp(Zmod) {
+      Z -= Zmod;
+    }
+    function fastChange(newZ) {
+      console.log("Called");
+      Z = newZ;
+    }
     if (firstRun) {
-      zModFunc.current = warp;
+      zModFunc.current = { warp: warp, deWarp: deWarp, fastChange: fastChange };
     }
 
     // function to reset a star object

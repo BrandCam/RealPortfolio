@@ -4,10 +4,38 @@ import Video from "../Components/Video/Video";
 import PageWrap from "./Page.style";
 import LargeCard from "../Components/UI/LargeCard";
 import CanvasContext from "../Context/CanvasContext";
+import { pageTransition } from "../Animation/AnimationConsts";
+
 const About = ({ vp, page }) => {
   // canvas vars from context
   let { canvasVars, setCanvasVars } = useContext(CanvasContext);
   let { center, zModFunc } = canvasVars;
+
+  //Animation states
+  const idel = (func) => {
+    zModFunc.fastChange(0.01);
+  };
+  const warpSpeed = (func) => {
+    zModFunc.fastChange(2);
+  };
+  const reverse = (func) => {
+    zModFunc.fastChange(-0.13);
+  };
+  const speedUp = (func) => {
+    zModFunc.warp(0.01);
+  };
+
+  const onPageChange = () => {
+    idel();
+    setTimeout(reverse, 1000);
+    setTimeout(warpSpeed, 4000);
+    setTimeout(idel, 6000);
+    setTimeout(speedUp, 7000);
+    setTimeout(speedUp, 7500);
+    setTimeout(speedUp, 7600);
+    setTimeout(speedUp, 7700);
+    setTimeout(speedUp, 7800);
+  };
 
   //this is stupid and so am I
   useEffect(() => {
@@ -16,10 +44,15 @@ const About = ({ vp, page }) => {
     }
   }, [vp]);
   return (
-    <PageWrap>
+    <PageWrap initial="out" animate="in" exit="out" variants={pageTransition}>
       <NavBar page={page} />
       <Video />
-      <LargeCard onClick={() => zModFunc(0.1)}>
+      <button onClick={() => zModFunc.fastChange(0.1)}>Fast Stop</button>
+      <button onClick={() => zModFunc.fastChange(2)}>Warp Fast</button>
+      <button onClick={() => zModFunc.fastChange(0.01)}>idel</button>
+      <button onClick={() => zModFunc.deWarp(0.05)}>Slow Down</button>
+      <button onClick={() => zModFunc.warp(0.05)}>Speed Up</button>
+      <LargeCard onClick={() => onPageChange()}>
         For those who have seen the Earth from space, and for the hundreds and
         perhaps thousands more who will, the experience most certainly changes
         your perspective. The things that we share in our world are far more
