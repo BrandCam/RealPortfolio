@@ -47,12 +47,8 @@ const About = ({ vp, page }) => {
     <PageWrap initial="out" animate="in" exit="out" variants={pageTransition}>
       <NavBar page={page} />
       <Video />
-      <button onClick={() => zModFunc.fastChange(0.1)}>Fast Stop</button>
-      <button onClick={() => zModFunc.fastChange(2)}>Warp Fast</button>
-      <button onClick={() => zModFunc.fastChange(0.01)}>idel</button>
-      <button onClick={() => zModFunc.deWarp(0.05)}>Slow Down</button>
-      <button onClick={() => zModFunc.warp(0.05)}>Speed Up</button>
-      <LargeCard onClick={() => onPageChange()}>
+
+      <LargeCard>
         For those who have seen the Earth from space, and for the hundreds and
         perhaps thousands more who will, the experience most certainly changes
         your perspective. The things that we share in our world are far more

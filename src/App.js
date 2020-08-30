@@ -7,7 +7,8 @@ import RouterView from "./Pages/Router-View.style";
 import { Home, Skills, Projects, Contact, About, Sf } from "./Pages/index";
 import CanvasContext from "./Context/CanvasContext";
 import { AnimatePresence, motion } from "framer-motion";
-
+import Static from "./Components/UI/Static.styles";
+import staticImg from "./img/static.png";
 const resetScroll = (ref) => {
   ref.current.scrollTop = 0;
 };
@@ -15,6 +16,7 @@ const resetScroll = (ref) => {
 function App() {
   // VARS
   const viewPort = useRef(null);
+  let [showStatic, setShowStatic] = useState(false);
   let [canvasVars, setCanvasVars] = useState({
     center: true,
     warpZ: 12,
@@ -38,7 +40,9 @@ function App() {
   }, [pathname]);
 
   return (
-    <CanvasContext.Provider value={{ canvasVars, setCanvasVars }}>
+    <CanvasContext.Provider
+      value={{ canvasVars, setCanvasVars, setShowStatic, showStatic }}
+    >
       <div className="App">
         <RouterView
           style={{
@@ -46,6 +50,9 @@ function App() {
           }}
           ref={viewPort}
         >
+          <Static className={showStatic ? "show" : ""}>
+            <img src={staticImg} />
+          </Static>
           <AnimatePresence exitBeforeEnter>
             <Switch location={location} key={location.pathname}>
               <Route exact path="/">
