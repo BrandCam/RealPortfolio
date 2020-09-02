@@ -23,7 +23,10 @@ const ProjectPrev = ({ prevs, selected, selectHandle }) => {
         }}
         className={`img-wrap ${selected ? "" : "selected"}`}
       >
-        <img style={{ width: "100%", height: "100%" }} src={selectedPrev} />
+        <img
+          style={{ width: "100%", height: "100%", maxHeight: "700px" }}
+          src={selectedPrev}
+        />
       </div>
       <section className={selected ? "" : "hidden"}>
         <PacBar select={handelPrevSelect} dots={prevs}></PacBar>

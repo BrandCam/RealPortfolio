@@ -11,9 +11,10 @@ const ProjectPrevWrap = styled.div`
     height: 100%;
     transition: all 4s linear;
   }
-  .image-.img-wrap.selected {
+  .image.img-wrap.selected {
     width: 100%;
     height: 50%;
+    max-height: 300px;
   }
 
   section.hidden {

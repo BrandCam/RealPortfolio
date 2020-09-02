@@ -5,9 +5,11 @@ import PageWrap from "./Page.style";
 import LargeCard from "../Components/UI/LargeCard";
 import ProjectBox from "../Components/ProjectBox/ProjectBox";
 import lodgelPrevs from "../img/previews/lodgel/index";
+import buddyPrevs from "../img/previews/burger-buddy/index";
 import { pageTransition } from "../Animation/AnimationConsts";
 const Projects = ({ vp, page }) => {
   const [lodgel, setLodgel] = useState(lodgelPrevs);
+  const [buddy, setbuddy] = useState(buddyPrevs);
   //this is stupid and so am I
   useEffect(() => {
     if (vp.current.scrollTop !== 0) {
@@ -25,8 +27,7 @@ const Projects = ({ vp, page }) => {
       <NavBar page={page} />
       {/* <Video /> */}
       <ProjectBox prevs={lodgel}></ProjectBox>
-      <ProjectBox prevs={lodgel}></ProjectBox>
-      <ProjectBox prevs={lodgel}></ProjectBox>
+      <ProjectBox prevs={buddy}></ProjectBox>
     </PageWrap>
   );
 };
