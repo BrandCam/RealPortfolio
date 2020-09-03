@@ -5,7 +5,7 @@ import image4 from "./lodgel4.gif";
 import image5 from "./lodgel5.gif";
 import image6 from "./lodgel6.gif";
 
-const imgs = [
+export const imgs = [
   {
     image: image1,
     description:
@@ -32,4 +32,23 @@ const imgs = [
   },
 ];
 
-export default imgs;
+export const fullDescription = {
+  text:
+    "Lodgel is a project designed for rental property management. It consolidates key tasks like invoicing and employee management into one central location.",
+  tech: [
+    "Postgress",
+    "Sqlite",
+    "Jest",
+    "React",
+    "TypeScript",
+    "Firebase Auth",
+    "Stripe",
+    "Sendgrid",
+    "KnexJS",
+    "WebPack",
+    "ES6 NodeJS",
+  ],
+  github: "https://github.com/BrandCam/labs10-cleaner-tool",
+  deployed: "https://lodgel-frontend.netlify.app/",
+  stack: ["React", "Node", "SQL"],
+};

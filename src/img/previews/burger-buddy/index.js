@@ -4,7 +4,7 @@ import image3 from "./buddy3.gif";
 import image4 from "./buddy4.gif";
 import image5 from "./buddy5.gif";
 
-const imgs = [
+export const imgs = [
   {
     image: image1,
     description: "Ordering a burger.",
@@ -24,4 +24,10 @@ const imgs = [
   },
 ];
 
-export default imgs;
+export const fullDescription = {
+  text: "A small app to learn firebase realtime database and refresh redux",
+  tech: ["firebase RTDB", "React", "Redux", "Firebase Auth"],
+  github: "https://github.com/BrandCam/Redux-refresher",
+  deployed: "https://burger-buddy.netlify.app/",
+  stack: ["JAM"],
+};

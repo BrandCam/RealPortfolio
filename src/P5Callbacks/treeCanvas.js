@@ -1,7 +1,16 @@
-const s = (sketch) => {
-  //Globals
-  let numIters = 6;
+//TODO rewrite this in a seperate program...
 
+const s = (sketch) => {
+  //GLOBALS
+  let numIters = 5;
+  const treeColors = [
+    "rgba(100,255,100,0.25)",
+    "rgba(255,100,100,0.25)",
+    "rgba(255,255,255,0.25)",
+    "rgba(100,100,255,0.25)",
+  ];
+
+  // CONSTRUCTORS
   class Point {
     constructor(xOrPoint, y) {
       if (xOrPoint.x !== undefined && xOrPoint.y !== undefined) {
@@ -36,47 +45,69 @@ const s = (sketch) => {
     }
   }
 
+  class Tree {
+    constructor(rgba) {
+      this.params = {
+        pAngle: 20,
+        mAngle: 20,
+        xAngle: 0,
+        zAngle: 20,
+        length: 10,
+        rgba: rgba,
+      };
+      this.axiom = "X";
+      this.rules = {
+        X: "FF[+XZ++X-F[+ZX]][-X++F-X]",
+        F: "FX[FX[+XF]]",
+        Z: "[+F-X-F][++ZX]",
+        //   X: "F-[[>6X]+X]+F[>6+FX]",
+        //   F: "FF",
+        //   F: "FFF[-FF][+FF[xFF[yFF]F]FFF]F",
+      };
+      this.commands = {
+        F: drawForward,
+        "-"(drawingState, params) {
+          drawingState.state.direction -= params.mAngle;
+        },
+        "+"(drawingState, params) {
+          drawingState.state.direction += params.pAngle;
+        },
+        "["(drawingState, params) {
+          drawingState.push();
+        },
+        "]"(drawingState, params) {
+          drawingState.pop();
+        },
+        X(drawingState, params) {
+          drawingState.state.direction += params.xAngle;
+        },
+        Z(drawingState, params) {
+          drawingState.state.direction += params.zAngle;
+        },
+      };
+    }
+  }
+
+  // HELPER FUNCTIONS
+  // TODO Implement a has map to track if lines have been drawn before
   function drawForward(drawingState, params) {
     let { x, y } = drawingState.state.position;
     let d = drawingState.state.direction;
-    let newX = x + params.length * sketch.cos(d);
-    let newY = y + params.length * sketch.sin(d);
+    let xDist = params.length * sketch.cos(d);
+    let yDist = params.length * sketch.sin(d);
+    // let lineLeng = Math.sqrt(xDist * xDist + yDist * yDist);
+    let newX = x + xDist;
+    let newY = y + yDist;
     sketch.push();
+    //set stroke based on line length
+    // console.log(lineLeng);
+    sketch.stroke(params.rgba);
     sketch.strokeWeight(drawingState.state.strokeWeight || 1);
     sketch.line(x, y, newX, newY);
     sketch.pop();
     drawingState.state.position.x = newX;
     drawingState.state.position.y = newY;
   }
-
-  const tree = {
-    params: {
-      angle: 25,
-      length: 2,
-    },
-    axiom: "X",
-    rules: {
-      X: "F[-X][X]F[-X]+FX",
-      F: "FF",
-    },
-    commands: {
-      F: drawForward,
-      "-"(drawingState, params) {
-        drawingState.state.direction -= params.angle;
-      },
-      "+"(drawingState, params) {
-        drawingState.state.direction += params.angle;
-      },
-      "["(drawingState, params) {
-        drawingState.push();
-      },
-      "]"(drawingState, params) {
-        drawingState.pop();
-      },
-    },
-  };
-
-  let system = tree;
 
   function applyRule(rules, char) {
     return rules[char] || char;
@@ -86,6 +117,15 @@ const s = (sketch) => {
     for (const char of string) {
       yield applyRule(system.rules, char);
     }
+    // TODO figure out how to speed up drawing
+    // for (let i = 0; i < string.length; i += 2) {
+    //   let str1 = applyRule(system.rules, string[i]);
+    //   let str2 = applyRule(system.rules, string[i + 1]);
+    //   console.log(str1, str2);
+    //   let pushStr = `${str1.value} ${str2.value}`;
+    //   let newArg = { value: pushStr, done: str2.done };
+    //   yield newArg;
+    // }
   }
 
   function renderAGeneration(system, previousGeneration) {
@@ -97,8 +137,10 @@ const s = (sketch) => {
     return nextGeneration;
   }
 
-  const CANVAS_BOUNDS = new Point(1000, 1000);
+  // CANVAS SIZE
+  const CANVAS_BOUNDS = new Point(window.innerWidth * 0.9, 500);
 
+  //P5 FUNCTIONS
   function setup() {
     sketch.createCanvas(CANVAS_BOUNDS.x, CANVAS_BOUNDS.y);
     sketch.angleMode(sketch.DEGREES);
@@ -108,7 +150,7 @@ const s = (sketch) => {
   function drawSystem(system, fragmentIterator, drawingState) {
     const drawFrame = () => {
       const iter = fragmentIterator.next();
-      console.log(iter);
+
       if (iter.done) {
         return;
       }
@@ -119,27 +161,75 @@ const s = (sketch) => {
           drawingFunction(drawingState, system.params);
         }
       }
+
       requestAnimationFrame(drawFrame);
     };
     requestAnimationFrame(drawFrame);
   }
 
   async function mouseClicked() {
+    const system = new Tree(treeColors[Math.floor(Math.random() * 4)]);
+
     const origin = new Point(sketch.mouseX, sketch.mouseY);
     let systemState = system.axiom;
-    console.log(systemState);
+
     for (let i = 1; i < numIters - 1; i++) {
       systemState = renderAGeneration(system, systemState);
-      console.log(systemState);
     }
     const drawingState = new DrawingState(origin, -90);
     const fragmentIterator = fragmentGenerator(system, systemState);
     drawSystem(system, fragmentIterator, drawingState);
   }
 
-  sketch.setup = setup;
+  function windowResize() {
+    sketch.resizeCanvas(window.innerWidth * 0.9, 700);
+  }
 
+  //APPLYING P5 FUNCTIONS
+  sketch.setup = setup;
+  sketch.windowResize = windowResize;
   sketch.mouseClicked = mouseClicked;
+
+  //Old tree Object
+  // const tree = {
+  //   params: {
+  //     pAngle: 20,
+  //     mAngle: 20,
+  //     xAngle: 0,
+  //     zAngle: 20,
+  //     length: 10,
+  //   },
+  //   axiom: "X",
+  //   rules: {
+  //     X: "FF[+XZ++X-F[+ZX]][-X++F-X]",
+  //     F: "FX[FX[+XF]]",
+  //     Z: "[+F-X-F][++ZX]",
+  //     //   X: "F-[[>6X]+X]+F[>6+FX]",
+  //     //   F: "FF",
+  //     //   F: "FFF[-FF][+FF[xFF[yFF]F]FFF]F",
+  //   },
+  //   commands: {
+  //     F: drawForward,
+  //     "-"(drawingState, params) {
+  //       drawingState.state.direction -= params.mAngle;
+  //     },
+  //     "+"(drawingState, params) {
+  //       drawingState.state.direction += params.pAngle;
+  //     },
+  //     "["(drawingState, params) {
+  //       drawingState.push();
+  //     },
+  //     "]"(drawingState, params) {
+  //       drawingState.pop();
+  //     },
+  //     X(drawingState, params) {
+  //       drawingState.state.direction += params.xAngle;
+  //     },
+  //     Z(drawingState, params) {
+  //       drawingState.state.direction += params.zAngle;
+  //     },
+  //   },
+  // };
 };
 
 export default s;

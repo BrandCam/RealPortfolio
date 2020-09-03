@@ -11,7 +11,12 @@ const LargeCard = (props) => {
         <span className="bottom-left"></span>
         <span className="bottom-right"></span>
       </div>
-      <div className="children">{props.children}</div>
+      <div
+        style={props.margin === "none" ? { margin: "0" } : {}}
+        className="children"
+      >
+        {props.children}
+      </div>
     </CardWrap>
   );
 };

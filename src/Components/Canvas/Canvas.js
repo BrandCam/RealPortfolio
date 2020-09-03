@@ -26,7 +26,6 @@ const Canvas = () => {
   let w = useRef(window);
 
   useEffect(() => {
-    console.log(w.current.innerWidth);
     let canvas = ref.current;
     let context = canvas.getContext("2d");
 

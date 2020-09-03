@@ -24,7 +24,7 @@ const Contact = ({ vp, page }) => {
 
   const focusSetHandler = (e) => {
     let target = e.target.name;
-    console.log(e.target.name);
+
     setFocused(() => target);
   };
   //brain broke caveman time

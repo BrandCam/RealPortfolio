@@ -89,7 +89,6 @@ const Canvas = () => {
       var doff = delta / 25;
       if ((delta > 0 && Z + doff <= 0.5) || (delta < 0 && Z + doff >= 0.01)) {
         Z += delta / 25;
-        console.log(e.delta);
       }
     }
     addCanvasEventListener("DOMMouseScroll", wheel);
@@ -103,7 +102,6 @@ const Canvas = () => {
       Z -= Zmod;
     }
     function fastChange(newZ) {
-      console.log("Called");
       Z = newZ;
     }
     if (firstRun) {

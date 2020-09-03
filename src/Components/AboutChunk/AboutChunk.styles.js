@@ -8,6 +8,7 @@ const AboutChunkWrap = styled.section`
   &.mirrored {
     align-self: flex-start;
     justify-content: flex-start;
+    margin: 50px 0 100px 0;
     ${Video} {
       margin-left: -25px;
     }

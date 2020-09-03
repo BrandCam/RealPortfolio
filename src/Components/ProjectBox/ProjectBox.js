@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ProjectBoxScene from "./ProjectBox.style";
 import LargeCard from "../UI/LargeCard";
 import ProjectPrev from "../ProjectPrev/ProjectPrev";
-const ProjectBox = ({ prevs }) => {
+const ProjectBox = ({ prevs, text }) => {
   let [isSelected, setIsSelected] = useState(false);
   const selectHandler = (e) => {
     e.preventDefault();
@@ -19,6 +19,7 @@ const ProjectBox = ({ prevs }) => {
             selectHandle={selectHandler}
             selected={isSelected}
             prevs={prevs}
+            text={text}
           />
         </div>
         <div className="box-face box-face-back">
@@ -26,6 +27,7 @@ const ProjectBox = ({ prevs }) => {
             selectHandle={selectHandler}
             selected={isSelected}
             prevs={prevs}
+            text={text}
           />
         </div>
         <div className="box-face box-face-right" onClick={selectHandler}>

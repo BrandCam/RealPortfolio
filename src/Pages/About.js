@@ -9,6 +9,7 @@ import Headline from "../Components/UI/Headline.stlye";
 import AboutCunk from "../Components/AboutChunk/AboutChunk";
 import AboutOne from "../Components/AboutChunk/AboutOne";
 import AboutTwo from "../Components/AboutChunk/AboutTwo";
+import AboutThree from "../Components/AboutChunk/AboutThree";
 import TreeCanvas from "../Components/Canvas/TreeCanvas";
 const About = ({ vp, page }) => {
   // canvas vars from context
@@ -59,7 +60,7 @@ const About = ({ vp, page }) => {
       </AboutCunk>
       <TreeCanvas></TreeCanvas>
       <AboutCunk mirrored>
-        <AboutOne />
+        <AboutThree />
       </AboutCunk>
       <AboutCunk>
         <AboutOne />
