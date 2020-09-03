@@ -9,6 +9,8 @@ import { Formik, Field, Form } from "formik";
 import emailjs from "emailjs-com";
 import bg from "../img/send.png";
 import { pageTransition } from "../Animation/AnimationConsts";
+import Loader from "../Components/UI/LoaderHearts";
+import HeartWrap from "../Components/UI/Loader.style";
 const InfoWrap = styled.section`
   display: flex;
   flex-direction: column;
@@ -21,7 +23,7 @@ const InfoWrap = styled.section`
 `;
 const Contact = ({ vp, page }) => {
   const [focused, setFocused] = useState(null);
-
+  const [loading, setLoading] = useState(false);
   const focusSetHandler = (e) => {
     let target = e.target.name;
 
@@ -55,6 +57,16 @@ const Contact = ({ vp, page }) => {
         <InfoWrap>
           <p>Feel free to shoot me an email. </p>
           <p>
+            <span
+              style={{
+                color: "rgb(253, 196, 15)",
+                fontFamily: "press start 2p",
+              }}
+            >
+              brand.man.doo@gmail.com
+            </span>
+          </p>
+          <p>
             For a more concise reply please include a brief message detailing
             what I can help you with.
           </p>
@@ -68,6 +80,7 @@ const Contact = ({ vp, page }) => {
           message: "",
         }}
         onSubmit={(values, { resetForm }) => {
+          setLoading(true);
           emailjs
             .send(
               "gmail",
@@ -75,9 +88,13 @@ const Contact = ({ vp, page }) => {
               values,
               "user_OiYECJTwy5GRU6wqSW2LR"
             )
+            // setTimeout(() => {
+            //   setLoading(false);
+            // }, 3000);
             .then(
               (res) => {
                 console.log("SUCCESS", res.status, res.text);
+                setLoading(false);
                 resetForm();
               },
               (err) => {
@@ -135,14 +152,30 @@ const Contact = ({ vp, page }) => {
                 as="textarea"
               />
             </div>
-            <div className="button-wrap">
-              <button style={{ backgroundImage: `url(${bg})` }} type="submit">
-                <span>Punch It!</span>
-              </button>
-            </div>
+
+            {loading ? null : (
+              <div className="button-wrap">
+                <button style={{ backgroundImage: `url(${bg})` }} type="submit">
+                  <span>Punch It!</span>
+                </button>
+              </div>
+            )}
           </MyForm>
         )}
       </Formik>
+      {!loading ? null : (
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+            alignItems: "center",
+            minHeight: "85px",
+            width: "100%",
+          }}
+        >
+          <Loader />
+        </div>
+      )}
     </PageWrap>
   );
 };
