@@ -30,15 +30,23 @@ const ProjectBoxScene = styled.section`
   margin: 80px;
   transition: all 3s linear;
   perspective: 1500px;
+  @media (max-width: 700px) {
+    transition: none;
+  }
 
   &.selected {
     width: 100%;
-    min-height: 1000px;
-
+    min-height: 1100px;
+    @media (max-width: 700px) {
+      min-height: 1000px;
+    }
     .box {
       width: 100%;
       height: 100%;
       animation: ${clicked} 4s linear;
+      @media (max-width: 700px) {
+        animation: none;
+      }
     }
     .box-face-front {
       height: auto;
@@ -74,6 +82,9 @@ const ProjectBoxScene = styled.section`
     transition: transform 1s;
     animation: ${rotate} 4s linear infinite;
     animation-duration: infinite;
+    @media (max-width: 700px) {
+      animation: none;
+    }
   }
 
   /* SHOWS FRONT */
@@ -96,6 +107,9 @@ const ProjectBoxScene = styled.section`
     width: 100%;
     height: 100%;
     transition: all 2s linear;
+    @media (max-width: 700px) {
+      pointer-events: none;
+    }
   }
 
   .box-face-right {
@@ -104,6 +118,9 @@ const ProjectBoxScene = styled.section`
     left: 33%;
     line-height: 200px;
     transition: all 2s linear;
+    @media (max-width: 700px) {
+      pointer-events: none;
+    }
   }
 
   .box-face-left {
@@ -112,6 +129,9 @@ const ProjectBoxScene = styled.section`
     left: 33%;
     line-height: 200px;
     transition: all 2s linear;
+    @media (max-width: 700px) {
+      pointer-events: none;
+    }
   }
 
   .box-face-top {
@@ -120,6 +140,9 @@ const ProjectBoxScene = styled.section`
     top: 50px;
     line-height: 100px;
     transition: all 2s linear;
+    @media (max-width: 700px) {
+      pointer-events: none;
+    }
   }
 
   .box-face-bottom {
@@ -128,6 +151,9 @@ const ProjectBoxScene = styled.section`
     top: 50px;
     line-height: 100px;
     transition: all 2s linear;
+    @media (max-width: 700px) {
+      pointer-events: none;
+    }
   }
 
   .box-face-front {

@@ -29,15 +29,15 @@ const Home = ({ vp, page }) => {
           <img src={img} />
         </LogoWrap>
         <Nav />
+        <SocialWrap>
+          <a href="https://github.com/BrandCam">
+            <img src={git} />
+          </a>
+          <a href="https://www.linkedin.com/in/brandon-campbell-65279a123/">
+            <img src={ln} />
+          </a>
+        </SocialWrap>
       </HomeWrap>
-      <SocialWrap>
-        <a href="https://github.com/BrandCam">
-          <img src={git} />
-        </a>
-        <a href="https://www.linkedin.com/in/brandon-campbell-65279a123/">
-          <img src={ln} />
-        </a>
-      </SocialWrap>
     </>
   );
 };

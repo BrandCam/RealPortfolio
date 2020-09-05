@@ -15,6 +15,9 @@ export const SectionWrap = styled.section`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  @media (max-width: 800px) {
+    justify-content: center;
+  }
 `;
 
 export const ThreeDScene = styled.div`
@@ -22,6 +25,10 @@ export const ThreeDScene = styled.div`
   perspective: 2000px;
   width: 396px;
   height: 528px;
+  @media (max-width: 1100px) {
+    width: 300px;
+    height: 528px;
+  }
   .card {
     width: 100%;
     height: 100%;
@@ -30,6 +37,9 @@ export const ThreeDScene = styled.div`
     cursor: pointer;
     position: relative;
     animation: ${rotate} 4s linear infinite;
+    @media (max-width: 700px) {
+      animation: none;
+    }
   }
   .card-face {
     position: absolute;

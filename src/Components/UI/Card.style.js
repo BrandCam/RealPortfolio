@@ -11,13 +11,31 @@ const scale = (props) => {
   return "7.5px";
 };
 
-const width = ({ size }) => (size === "small" ? "" : "100%");
+const width = ({ size }) => {
+  if (size === "small") {
+    return "";
+  }
+  if (size === "header") {
+    return "1200px";
+  }
+  return "100%";
+};
 
 const CardWrap = styled.div`
-  width: ${(props) => (props.size === "small" ? "" : "100%")};
+  width: ${(props) => width(props)};
   line-height: 3;
   margin: ${(props) => (props.size === "small" ? "" : "50px 15px")};
   position: relative;
+
+  @media (max-width: 1350px) {
+    ${(props) => (props.size === "header" ? "width: 900px;" : "")};
+  }
+  @media (max-width: 1000px) {
+    ${(props) => (props.size === "header" ? "width: 100%;" : "")};
+  }
+  @media (max-width: 600px) {
+    ${(props) => (props.size === "header" ? "width: 140%;" : "")};
+  }
 
   .children {
     font-family: "Russo One", sans-serif;

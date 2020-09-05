@@ -3,7 +3,10 @@ import CardWrap from "./Card.style";
 
 const LargeCard = (props) => {
   return (
-    <CardWrap {...props} className="border-top-bottom">
+    <CardWrap
+      {...props}
+      className={`border-top-bottom ${props.header ? "header" : ""}`}
+    >
       <div className="border-left-right"></div>
       <div className="background">
         <span className="top-left"></span>

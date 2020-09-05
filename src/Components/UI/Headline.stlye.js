@@ -12,6 +12,7 @@ const animatedCursor = keyframes`
   `;
 
 const Headline = styled.h1`
+  width: 100%;
   border-right: solid 3px rgba(255, 255, 255, 0.75);
   font-size: 2rem;
   color: rgba(255, 255, 255, 1);
@@ -19,6 +20,20 @@ const Headline = styled.h1`
   overflow: hidden;
   animation: ${animatedText} 15s steps(34, end) 1s 1 normal both,
     ${animatedCursor} 600ms steps(34, end) infinite;
+  @media (max-width: 1350px) {
+    font-size: 1.5rem;
+  }
+  @media (max-width: 1000px) {
+    font-size: 1rem;
+    max-width: 490px;
+  }
+  @media (max-width: 750px) {
+    font-size: 0.8rem;
+    max-width: 392px;
+  }
+  @media (max-width: 400px) {
+    font-size: 0.7rem;
+  }
 `;
 
 export default Headline;

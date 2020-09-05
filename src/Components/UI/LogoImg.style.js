@@ -14,6 +14,14 @@ const LogoWrap = styled.div`
     height: 75px;
     margin-top: 0;
   }
+  @media only screen and (max-width: 600px) {
+    width: 400px;
+    height: 200px;
+  }
+  @media (max-width: 500px) {
+    width: 300px;
+    height: 150px;
+  }
 `;
 
 export default LogoWrap;

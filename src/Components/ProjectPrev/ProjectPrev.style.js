@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import LargeCard from "../UI/LargeCard";
 const ProjectPrevWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -10,6 +10,11 @@ const ProjectPrevWrap = styled.div`
     width: 100%;
     height: 100%;
     transition: all 4s linear;
+    @media (max-width: 700px) {
+      transition: none;
+      height: 400px;
+      pointer-events: none;
+    }
   }
   .image.img-wrap.selected {
     width: 100%;

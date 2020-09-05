@@ -9,11 +9,17 @@ export const HighScoreInner = styled.div`
   width: 350px;
   justify-content: center;
   align-items: center;
+  @media (max-width: 1100px) {
+    width: 100%;
+  }
   h1 {
     font-size: 2rem;
     width: 100%;
     display: flex;
     justify-content: center;
+    @media (max-width: 1100px) {
+      font-size: 1.8rem;
+    }
   }
   tbody {
     tr:nth-child(1n) {

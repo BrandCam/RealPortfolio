@@ -53,129 +53,134 @@ const Contact = ({ vp, page }) => {
       transition={{ duration: 1 }}
     >
       <NavBar page={page} />
-      <LargeCard size="small">
-        <InfoWrap>
-          <p>Feel free to shoot me an email. </p>
-          <p>
-            <span
-              style={{
-                color: "rgb(253, 196, 15)",
-                fontFamily: "press start 2p",
-              }}
-            >
-              brand.man.doo@gmail.com
-            </span>
-          </p>
-          <p>
-            For a more concise reply please include a brief message detailing
-            what I can help you with.
-          </p>
-        </InfoWrap>
-      </LargeCard>
-      <Formik
-        initialValues={{
-          name: "",
-          email: "",
-          subject: "",
-          message: "",
-        }}
-        onSubmit={(values, { resetForm }) => {
-          setLoading(true);
-          emailjs
-            .send(
-              "gmail",
-              "portfolio_reply",
-              values,
-              "user_OiYECJTwy5GRU6wqSW2LR"
-            )
-            // setTimeout(() => {
-            //   setLoading(false);
-            // }, 3000);
-            .then(
-              (res) => {
-                console.log("SUCCESS", res.status, res.text);
-                setLoading(false);
-                resetForm();
-              },
-              (err) => {
-                console.log("FAILED", err);
-              }
-            );
-        }}
-      >
-        {(props) => (
-          <MyForm>
-            <div className="name-wrap">
-              <span className={checkFocus(props.values.name, "name")}>
-                NAME
+      <span className="page">
+        <LargeCard size="small">
+          <InfoWrap>
+            <p>Feel free to shoot me an email. </p>
+            <p>
+              <span
+                style={{
+                  color: "rgb(253, 196, 15)",
+                  fontFamily: "press start 2p",
+                }}
+              >
+                brand.man.doo@gmail.com
               </span>
-              <Field
-                onBlur={() => setFocused((cur) => "")}
-                onClick={(e) => focusSetHandler(e)}
-                tabIndex="-1"
-                name="name"
-                type="name"
-              />
-            </div>
-            <div className="email-wrap">
-              <span className={checkFocus(props.values.email, "email")}>
-                EMAIL
-              </span>
-              <Field
-                onBlur={() => setFocused((cur) => "")}
-                onClick={(e) => focusSetHandler(e)}
-                tabIndex="-1"
-                name="email"
-                type="email"
-                value={props.values.email}
-              />
-            </div>
-            <div className="subject-wrap">
-              <span className={checkFocus(props.values.subject, "subject")}>
-                SUBJECT
-              </span>
-              <Field
-                onBlur={() => setFocused((cur) => "")}
-                onClick={(e) => focusSetHandler(e)}
-                tabIndex="-1"
-                name="subject"
-                type="text"
-              />
-            </div>
-            <div className="message-wrap">
-              <span style={{ color: "rgb(253, 196, 15)" }}>MESSAGE</span>
-              <Field
-                onClick={(e) => focusSetHandler(e)}
-                rows={4}
-                cols={40}
-                name="message"
-                as="textarea"
-              />
-            </div>
-
-            {loading ? null : (
-              <div className="button-wrap">
-                <button style={{ backgroundImage: `url(${bg})` }} type="submit">
-                  <span>Punch It!</span>
-                </button>
-              </div>
-            )}
-          </MyForm>
-        )}
-      </Formik>
-      {!loading ? null : (
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "center",
-            minHeight: "85px",
-            width: "100%",
+            </p>
+            <p>
+              For a more concise reply please include a brief message detailing
+              what I can help you with.
+            </p>
+          </InfoWrap>
+        </LargeCard>
+        <Formik
+          initialValues={{
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+          }}
+          onSubmit={(values, { resetForm }) => {
+            setLoading(true);
+            emailjs
+              .send(
+                "gmail",
+                "portfolio_reply",
+                values,
+                "user_OiYECJTwy5GRU6wqSW2LR"
+              )
+              // setTimeout(() => {
+              //   setLoading(false);
+              // }, 3000);
+              .then(
+                (res) => {
+                  console.log("SUCCESS", res.status, res.text);
+                  setLoading(false);
+                  resetForm();
+                },
+                (err) => {
+                  console.log("FAILED", err);
+                }
+              );
           }}
         >
-          <Loader />
-        </div>
-      )}
+          {(props) => (
+            <MyForm>
+              <div className="name-wrap">
+                <span className={checkFocus(props.values.name, "name")}>
+                  NAME
+                </span>
+                <Field
+                  onBlur={() => setFocused((cur) => "")}
+                  onClick={(e) => focusSetHandler(e)}
+                  tabIndex="-1"
+                  name="name"
+                  type="name"
+                />
+              </div>
+              <div className="email-wrap">
+                <span className={checkFocus(props.values.email, "email")}>
+                  EMAIL
+                </span>
+                <Field
+                  onBlur={() => setFocused((cur) => "")}
+                  onClick={(e) => focusSetHandler(e)}
+                  tabIndex="-1"
+                  name="email"
+                  type="email"
+                  value={props.values.email}
+                />
+              </div>
+              <div className="subject-wrap">
+                <span className={checkFocus(props.values.subject, "subject")}>
+                  SUBJECT
+                </span>
+                <Field
+                  onBlur={() => setFocused((cur) => "")}
+                  onClick={(e) => focusSetHandler(e)}
+                  tabIndex="-1"
+                  name="subject"
+                  type="text"
+                />
+              </div>
+              <div className="message-wrap">
+                <span style={{ color: "rgb(253, 196, 15)" }}>MESSAGE</span>
+                <Field
+                  onClick={(e) => focusSetHandler(e)}
+                  rows={4}
+                  cols={40}
+                  name="message"
+                  as="textarea"
+                />
+              </div>
+
+              {loading ? null : (
+                <div className="button-wrap">
+                  <button
+                    style={{ backgroundImage: `url(${bg})` }}
+                    type="submit"
+                  >
+                    <span>Punch It!</span>
+                  </button>
+                </div>
+              )}
+            </MyForm>
+          )}
+        </Formik>
+        {!loading ? null : (
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "center",
+              minHeight: "85px",
+              width: "100%",
+            }}
+          >
+            <Loader />
+          </div>
+        )}
+      </span>
     </PageWrap>
   );
 };

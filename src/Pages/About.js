@@ -11,11 +11,16 @@ import AboutOne from "../Components/AboutChunk/AboutOne";
 import AboutTwo from "../Components/AboutChunk/AboutTwo";
 import AboutThree from "../Components/AboutChunk/AboutThree";
 import TreeCanvas from "../Components/Canvas/TreeCanvas";
+import useWindow from "../Hooks/useWindowWidth";
+import { useState } from "react";
 const About = ({ vp, page }) => {
   // canvas vars from context
   let { canvasVars, setCanvasVars } = useContext(CanvasContext);
   let { center, zModFunc } = canvasVars;
-
+  const headOne = "See in me that which I see in you.";
+  const headTwo = `You're gonna carry that weight.`;
+  let window = useWindow();
+  let [head, setHead] = useState(headOne);
   //Animation states
   const idel = (func) => {
     zModFunc.fastChange(0.01);
@@ -48,23 +53,34 @@ const About = ({ vp, page }) => {
       vp.current.scrollTop = 0;
     }
   }, [vp]);
+
+  useEffect(() => {
+    if (window <= 1000 && head !== headTwo) {
+      setHead(headTwo);
+    }
+    if (window > 1000 && head !== headOne) {
+      setHead(headOne);
+    }
+  }, [window]);
+
   return (
     <PageWrap initial="out" animate="in" exit="out" variants={pageTransition}>
       <NavBar page={page} />
-
-      <LargeCard style={{ marginTop: "70px" }}>
-        <Headline>See in me that which I see in you.</Headline>
-      </LargeCard>
-      <AboutCunk>
-        <AboutTwo />
-      </AboutCunk>
-      <TreeCanvas></TreeCanvas>
-      <AboutCunk mirrored>
-        <AboutThree />
-      </AboutCunk>
-      <AboutCunk>
-        <AboutOne />
-      </AboutCunk>
+      <span className="page">
+        <LargeCard size="header" className="header">
+          <Headline>{head}</Headline>
+        </LargeCard>
+        <AboutCunk>
+          <AboutTwo />
+        </AboutCunk>
+        <TreeCanvas></TreeCanvas>
+        <AboutCunk mirrored>
+          <AboutThree />
+        </AboutCunk>
+        <AboutCunk>
+          <AboutOne />
+        </AboutCunk>
+      </span>
     </PageWrap>
   );
 };

@@ -3,13 +3,20 @@ import styled from "styled-components";
 const DescriptionWrap = styled.div`
   display: flex;
   flex-direction: column;
+
   span {
     justify-self: center;
     text-align: center;
+    @media (max-width: 700px) {
+      font-size: 1.1rem;
+    }
   }
   .description {
     display: flex;
     flex-direction: row;
+    @media (max-width: 700px) {
+      flex-direction: column;
+    }
 
     div {
       width: 50%;
@@ -21,10 +28,21 @@ const DescriptionWrap = styled.div`
       justify-content: space-around;
       border-right: 5px solid white;
       min-height: 300px;
+      @media (max-width: 700px) {
+        min-height: 100px;
+        border-right: none;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-bottom: 5px solid white;
+      }
       button {
         font-family: "Press Start 2P", cursive;
         color: white;
         font-size: 1.3rem;
+        @media (max-width: 700px) {
+          margin-right: 10px;
+        }
       }
       button:focus {
         outline-style: none;
@@ -46,10 +64,20 @@ const DescriptionWrap = styled.div`
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
+      @media (max-width: 700px) {
+        min-height: 100px;
+
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
       li {
         font-family: "Press Start 2P", cursive;
         margin-right: 15px;
         font-size: 1rem;
+        @media (max-width: 700px) {
+          padding: 0;
+        }
       }
     }
     .content {
@@ -59,6 +87,18 @@ const DescriptionWrap = styled.div`
       text-align: center;
       align-items: center;
       justify-content: center;
+      @media (max-width: 700px) {
+        padding: 0;
+        min-height: 100px;
+        font-family: "Press Start 2P", cursive;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        font-size: 1rem;
+      }
+      @media (max-width: 500px) {
+        font-size: 0.8rem;
+      }
     }
     .links {
       flex-direction: column;

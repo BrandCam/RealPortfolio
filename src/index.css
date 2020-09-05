@@ -169,3 +169,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.canvas {
+  position: absolute;
+  border-radius: 100px;
+  z-index: -100;
+  width: 100%;
+  height: 100%;
+}
+.canvas-bg {
+  position: absolute;
+  border-radius: 100px;
+  z-index: -100;
+  left: 5%;
+  top: 5%;
+  width: 90%;
+  height: 90%;
+}
+@media (max-width: 600px) {
+  .canvas-bg {
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+  }
+  .canvas {
+    border-radius: 0;
+    z-index: -100;
+    width: 100%;
+    height: 100%;
+  }
+}

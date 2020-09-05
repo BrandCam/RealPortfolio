@@ -13,6 +13,10 @@ const Button = styled(Link)`
   align-items: center;
   font-family: "Press Start 2P", cursive;
   background-image: url(${bg});
+  @media (max-width: 800px) {
+    position: relative;
+    top: 110%;
+  }
 `;
 
 export default Button;

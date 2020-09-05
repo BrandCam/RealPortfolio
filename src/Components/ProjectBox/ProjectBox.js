@@ -1,13 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ProjectBoxScene from "./ProjectBox.style";
 import LargeCard from "../UI/LargeCard";
 import ProjectPrev from "../ProjectPrev/ProjectPrev";
-const ProjectBox = ({ prevs, text }) => {
+const ProjectBox = ({ window, prevs, text }) => {
   let [isSelected, setIsSelected] = useState(false);
   const selectHandler = (e) => {
     e.preventDefault();
     setIsSelected(!isSelected);
   };
+  useEffect(() => {
+    if (window <= 700) {
+      setIsSelected(true);
+    }
+  }, [window]);
   return (
     <ProjectBoxScene
       selected={isSelected}

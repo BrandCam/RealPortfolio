@@ -15,7 +15,19 @@ const Crt = styled.div`
     transparent 1px,
     transparent 2px
   );
+  border-radius: 100px;
+  width: 90%;
+  height: 90%;
+  left: 5%;
+  top: 5%;
   pointer-events: none;
+  @media (max-width: 600px) {
+    border-radius: 0;
+    left: 0%;
+    top: 0%;
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export default Crt;

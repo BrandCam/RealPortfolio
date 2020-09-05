@@ -9,6 +9,7 @@ const HomeWrap = styled(motion.div)`
   display: flex;
   flex-flow: column;
   align-items: center;
+  justify-content: center;
   ul {
     text-align: center;
     line-height: 2;

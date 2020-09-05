@@ -19,7 +19,9 @@ const PacWrap = styled.div`
   display: flex;
   justify-content: center;
   align-self: center;
-
+  @media (max-width: 700px) {
+    bottom: 30px;
+  }
   /* PAC */
   .pacman {
     pointer-events: none;
@@ -41,6 +43,9 @@ const PacWrap = styled.div`
     left: 0;
     background: ${pacColor};
     transition: inherit;
+    @media (max-width: 700px) {
+      animation: ${waka} 500ms infinite;
+    }
   }
 
   .pacman:before {

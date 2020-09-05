@@ -78,7 +78,7 @@ function App() {
         </RouterView>
 
         <Crt />
-        <Canvas />
+        <Canvas className="bg-canvas" />
       </div>
     </CanvasContext.Provider>
   );

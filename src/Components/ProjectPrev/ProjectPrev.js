@@ -32,7 +32,7 @@ const ProjectPrev = ({ prevs, selected, selectHandle, text }) => {
       </div>
       <section className={selected ? "" : "hidden"}>
         <PacBar select={handelPrevSelect} dots={prevs}></PacBar>
-        <LargeCard style={{ marginTop: "0" }}>
+        <LargeCard style={{ margin: "0 0 50px 0", width: "100%" }}>
           <Description text={text} selectedPrev={selectedPrev} />
         </LargeCard>
       </section>

@@ -10,7 +10,13 @@ const RouterView = styled.main`
   display: flex;
   justify-content: center;
   overflow-y: auto;
-
+  @media (max-width: 600px) {
+    top: 0;
+    left: 0px;
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+  }
   border: 1px solid rgba(0, 0, 0, 0);
   border-radius: 100px;
   /* Hide scrollbar for Chrome, Safari and Opera */

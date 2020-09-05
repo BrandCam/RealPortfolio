@@ -30,19 +30,20 @@ const Skills = ({ vp, page }) => {
           <Video />
         </StickyVid>
         <NavBar page={page} />
-
-        <HighScoreSection
-          skills={[
-            "REACT",
-            "NODEJS",
-            "HTML5",
-            "CSS3",
-            "SQLITE",
-            "POSTGRESQL",
-            "EXPRESS",
-            "REDUX",
-          ]}
-        />
+        <span className="page">
+          <HighScoreSection
+            skills={[
+              "REACT",
+              "NODEJS",
+              "HTML5",
+              "CSS3",
+              "SQLITE",
+              "POSTGRESQL",
+              "EXPRESS",
+              "REDUX",
+            ]}
+          />
+        </span>
       </PageWrap>
     </>
   );

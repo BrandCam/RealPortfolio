@@ -13,6 +13,14 @@ export const NavList = styled.div`
   align-items: center;
   margin-bottom: 100px;
   width: 100%;
+  @media (max-width: 600px) {
+    margin-top: 50px;
+  }
+  ${NavLink}:last-child {
+    @media (max-width: 600px) {
+      display: none;
+    }
+  }
 `;
 export const MenuHover = styled.div`
   position: absolute;

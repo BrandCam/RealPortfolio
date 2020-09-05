@@ -16,6 +16,9 @@ const AboutChunkWrap = styled.section`
   ${Video} {
     z-index: -2;
     width: 200px;
+    @media (max-width: 700px) {
+      display: none;
+    }
   }
 `;
 

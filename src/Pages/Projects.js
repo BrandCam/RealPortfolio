@@ -13,17 +13,22 @@ import {
   fullDescription as buddyDesc,
 } from "../img/previews/burger-buddy/index";
 import { pageTransition } from "../Animation/AnimationConsts";
+import useWindow from "../Hooks/useWindowWidth";
+
 const Projects = ({ vp, page }) => {
   const [lodgel, setLodgel] = useState(lodgelPrevs);
   const [buddy, setBuddy] = useState(buddyPrevs);
   const [lodgelD, setLodgelDesc] = useState(lodgelDesc);
   const [buddyD, setBuddyDesc] = useState(buddyDesc);
+
+  const width = useWindow();
   //this is stupid and so am I
   useEffect(() => {
     if (vp.current.scrollTop !== 0) {
       vp.current.scrollTop = 0;
     }
   }, [vp]);
+
   return (
     <PageWrap
       initial="out"
@@ -33,9 +38,11 @@ const Projects = ({ vp, page }) => {
       transition={{ duration: 1 }}
     >
       <NavBar page={page} />
-      {/* <Video /> */}
-      <ProjectBox text={lodgelD} prevs={lodgel}></ProjectBox>
-      <ProjectBox text={buddyD} prevs={buddy}></ProjectBox>
+      <span className="page">
+        {/* <Video /> */}
+        <ProjectBox window={width} text={lodgelD} prevs={lodgel}></ProjectBox>
+        <ProjectBox window={width} text={buddyD} prevs={buddy}></ProjectBox>
+      </span>
     </PageWrap>
   );
 };

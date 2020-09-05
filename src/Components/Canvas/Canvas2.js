@@ -1,11 +1,6 @@
 import React, { useRef, useContext, useLayoutEffect, useEffect } from "react";
 import CanvasContext from "../../Context/CanvasContext";
 const Canvas = () => {
-  const style = {
-    position: "absolute",
-    borderRadius: "100px",
-    zIndex: -100,
-  };
   // TODO Reright in a more OOP way to make edditing easier
   //grab canvas
   let ref = useRef();
@@ -176,26 +171,8 @@ const Canvas = () => {
   }, [center]);
 
   return (
-    <div
-      style={{
-        left: "5%",
-        top: "5%",
-        width: "90%",
-        height: "90%",
-
-        ...style,
-      }}
-      className="canvas-bg"
-    >
-      <canvas
-        ref={ref}
-        style={{
-          width: "100%",
-          height: "100%",
-          ...style,
-        }}
-        className="canvas"
-      ></canvas>
+    <div className="canvas-bg">
+      <canvas ref={ref} className="canvas"></canvas>
     </div>
   );
 };

@@ -32,9 +32,15 @@ const MyForm = styled(Form)`
   }
   div:nth-of-type(1) {
     width: 49%;
+    @media (max-width: 600px) {
+      width: 100%;
+    }
   }
   div:nth-of-type(2) {
     width: 49%;
+    @media (max-width: 600px) {
+      width: 100%;
+    }
   }
   span {
     pointer-events: none;
@@ -55,6 +61,9 @@ const MyForm = styled(Form)`
   .button-wrap {
     display: flex;
     justify-content: flex-end;
+    @media (max-width: 600px) {
+      justify-content: center;
+    }
 
     button {
       width: calc(340px * 0.5);
@@ -67,12 +76,23 @@ const MyForm = styled(Form)`
       background-size: 100%;
       color: white;
       transition: all 0.5s ease-out;
+
+      @media (max-width: 600px) {
+        width: calc(340px * 0.8);
+        height: calc(110px * 0.7);
+        opacity: 1;
+        color: white;
+      }
       span {
         font-family: "press start 2p";
         font-size: 1rem;
         margin-top: -7px;
         opacity: 0;
         margin-right: -10px;
+        @media (max-width: 600px) {
+          opacity: 1;
+          font-size: 1.5rem;
+        }
       }
     }
     button:hover {
