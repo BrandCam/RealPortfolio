@@ -12,7 +12,7 @@ const AboutThree = (props) => {
         a job working constructiion and for About 8 years that's what I did.
         Untill one day I woke up feeling sore and dreading going to work for the
         last time. I quit my Job in 2018, enrolled in a coding bootcamp and
-        haven't looked back sence. Not to say everythings been all sunshine and
+        haven't looked back since. Not to say everythings been all sunshine and
         rainbows. Hard times have still happened between then and now, but I'll
         take a carrer that stimulates my mind and allows me to tackel complex
         problems over one that just breaks me anyday.
