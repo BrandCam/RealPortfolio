@@ -22,14 +22,14 @@ const Nav = () => {
 
   const onPageChange = () => {
     idel();
-    setTimeout(reverse, 1000);
-    setTimeout(warpSpeed, 4000);
-    setTimeout(idel, 6000);
-    setTimeout(speedUp, 7000);
-    setTimeout(speedUp, 7500);
-    setTimeout(speedUp, 7600);
-    setTimeout(speedUp, 7700);
-    setTimeout(speedUp, 7800);
+    setTimeout(reverse, 500);
+    setTimeout(warpSpeed, 2000);
+    setTimeout(idel, 3000);
+    setTimeout(speedUp, 3500);
+    setTimeout(speedUp, 4000);
+    setTimeout(speedUp, 4200);
+    setTimeout(speedUp, 4300);
+    setTimeout(speedUp, 4400);
   };
 
   return (

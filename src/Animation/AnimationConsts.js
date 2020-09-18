@@ -1,8 +1,8 @@
 export const pageTransition = {
   in: {
-    opacity: [0, 0, 0, 0.5, 1, 1, 1],
-    scale: [0, 0, 0, 0.5, 1, 1.2, 1],
-    transition: { duration: 4 },
+    opacity: [0, 1],
+    scale: [0, 1],
+    transition: { duration: 2 },
   },
   out: {
     opacity: 0,
@@ -19,6 +19,6 @@ export const homeTransition = {
   out: {
     opacity: 0,
     scale: 0,
-    transition: { ease: "easeOut", duration: 4.5 },
+    transition: { ease: "easeOut", duration: 2.2 },
   },
 };

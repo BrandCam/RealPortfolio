@@ -117,15 +117,6 @@ const s = (sketch) => {
     for (const char of string) {
       yield applyRule(system.rules, char);
     }
-    // TODO figure out how to speed up drawing
-    // for (let i = 0; i < string.length; i += 2) {
-    //   let str1 = applyRule(system.rules, string[i]);
-    //   let str2 = applyRule(system.rules, string[i + 1]);
-    //   console.log(str1, str2);
-    //   let pushStr = `${str1.value} ${str2.value}`;
-    //   let newArg = { value: pushStr, done: str2.done };
-    //   yield newArg;
-    // }
   }
 
   function renderAGeneration(system, previousGeneration) {
@@ -149,12 +140,23 @@ const s = (sketch) => {
 
   function drawSystem(system, fragmentIterator, drawingState) {
     const drawFrame = () => {
-      const iter = fragmentIterator.next();
+      let done = false;
+      let fragment = "";
+      const numbIts = 5;
+      console.log(numbIts);
+      for (let i = 0; i < numbIts; i++) {
+        let iter = fragmentIterator.next();
+        fragment = fragment += iter.value;
+        if (iter.done && i === 0) {
+          done = true;
+          break;
+        }
+      }
 
-      if (iter.done) {
+      if (done) {
         return;
       }
-      const fragment = iter.value;
+
       for (const character of fragment) {
         const drawingFunction = system.commands[character];
         if (drawingFunction) {

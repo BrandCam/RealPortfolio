@@ -18,7 +18,7 @@ const Headline = styled.h1`
   color: rgba(255, 255, 255, 1);
   white-space: nowrap;
   overflow: hidden;
-  animation: ${animatedText} 15s steps(34, end) 1s 1 normal both,
+  animation: ${animatedText} 10s steps(34, end) 1s 1 normal both,
     ${animatedCursor} 600ms steps(34, end) infinite;
   @media (max-width: 1350px) {
     font-size: 1.5rem;
