@@ -12,14 +12,20 @@ import {
   imgs as buddyPrevs,
   fullDescription as buddyDesc,
 } from "../img/previews/burger-buddy/index";
+import {
+  imgs as aardvarkPrevs,
+  fullDescription as aardvarkDesc,
+} from "../img/previews/Aardvark/index";
 import { pageTransition } from "../Animation/AnimationConsts";
 import useWindow from "../Hooks/useWindowWidth";
 
 const Projects = ({ vp, page }) => {
   const [lodgel, setLodgel] = useState(lodgelPrevs);
   const [buddy, setBuddy] = useState(buddyPrevs);
+  const [aardvark, setAardvark] = useState(aardvarkPrevs);
   const [lodgelD, setLodgelDesc] = useState(lodgelDesc);
   const [buddyD, setBuddyDesc] = useState(buddyDesc);
+  const [aardvarkD, setAardvarkDesc] = useState(aardvarkDesc);
 
   const width = useWindow();
   //this is stupid and so am I
@@ -40,6 +46,11 @@ const Projects = ({ vp, page }) => {
       <NavBar page={page} />
       <span className="page">
         {/* <Video /> */}
+        <ProjectBox
+          window={width}
+          text={aardvarkD}
+          prevs={aardvark}
+        ></ProjectBox>
         <ProjectBox window={width} text={lodgelD} prevs={lodgel}></ProjectBox>
         <ProjectBox window={width} text={buddyD} prevs={buddy}></ProjectBox>
       </span>

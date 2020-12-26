@@ -75,9 +75,6 @@ const About = ({ vp, page }) => {
         </AboutCunk>
         <TreeCanvas></TreeCanvas>
         <AboutCunk mirrored>
-          <AboutThree />
-        </AboutCunk>
-        <AboutCunk>
           <AboutOne />
         </AboutCunk>
       </span>

@@ -25,7 +25,7 @@ export const imgs = [
 ];
 
 export const fullDescription = {
-  text: "A small app to learn firebase realtime database and refresh redux",
+  text: "A small app to learn firebase realtime database and refresh Redux",
   tech: ["firebase RTDB", "React", "Redux", "Firebase Auth"],
   github: "https://github.com/BrandCam/Redux-refresher",
   deployed: "https://burger-buddy.netlify.app/",

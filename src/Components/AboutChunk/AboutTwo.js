@@ -5,18 +5,18 @@ const AboutTwo = (props) => {
     <>
       <h3>Full Stack Web Developer. </h3>
       <p>
-        My name is Brandon Campbell and I am a Web Dev with a focus in react,
-        and front end technologies. I have a passion for creating beautiful
-        interactive software.
+        My name is Brandon Campbell and I am a Web Developer with a focus in
+        React, and front-end technologies. I have a passion for creating
+        beautiful, interactive software.
       </p>
       <p>
-        Data in its purest from possesses unmatchable eloquence and power. Yet
-        data alone can not hold a users attention long enough to achieve its
+        Data in its purest form possesses unmatchable eloquence and power. Yet
+        data alone cannot hold a user’s attention long enough to achieve its
         true purpose.
       </p>
       <p>
-        Im more of a visial peron myself, so opposed to telling you that this is
-        an L-sytem to simulate tree groth.{" "}
+        I'm more of a visual person myself, so opposed to telling you that this
+        is an L-system to simulate tree growth:{" "}
       </p>
       <code>
         {

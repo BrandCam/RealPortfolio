@@ -35,10 +35,12 @@ const Skills = ({ vp, page }) => {
             skills={[
               "REACT",
               "NODEJS",
+              "PHP",
               "HTML5",
               "CSS3",
               "SQLITE",
               "POSTGRESQL",
+              "MySQL",
               "EXPRESS",
               "REDUX",
             ]}
